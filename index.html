@@ -795,4 +795,318 @@
             'Bone': {
                 'GelMA': {
                     temp: 60, speed: 3, ratio: '50:50', viability: 'Medium',
-                    pressure: '20 kPa', lay
+                    pressure: '20 kPa', layerHeight: '0.3 mm', crosslinkTime: '4 min',
+                    cellDensity: '2×10⁶', mechanicalStrength: '3.5 MPa', degradationRate: '8 weeks'
+                },
+                'Alginate': {
+                    temp: 55, speed: 2, ratio: '40:60', viability: 'Low',
+                    pressure: '18 kPa', layerHeight: '0.35 mm', crosslinkTime: '3 min',
+                    cellDensity: '1.5×10⁶', mechanicalStrength: '2.8 MPa', degradationRate: '10 weeks'
+                },
+                'Hydroxyapatite': {
+                    temp: 65, speed: 1, ratio: '30:70', viability: 'Very Low',
+                    pressure: '25 kPa', layerHeight: '0.4 mm', crosslinkTime: '6 min',
+                    cellDensity: '1×10⁶', mechanicalStrength: '4.2 MPa', degradationRate: '12 weeks'
+                }
+            },
+            'Skin': {
+                'Collagen': {
+                    temp: 37, speed: 6, ratio: '75:25', viability: 'High',
+                    pressure: '10 kPa', layerHeight: '0.1 mm', crosslinkTime: '2 min',
+                    cellDensity: '5×10⁶', mechanicalStrength: '1.0 MPa', degradationRate: '2 weeks'
+                },
+                'Fibrin': {
+                    temp: 37, speed: 5, ratio: '70:30', viability: 'High',
+                    pressure: '12 kPa', layerHeight: '0.15 mm', crosslinkTime: '3 min',
+                    cellDensity: '4.5×10⁶', mechanicalStrength: '0.8 MPa', degradationRate: '3 weeks'
+                },
+                'Silk Fibroin': {
+                    temp: 38, speed: 4, ratio: '65:35', viability: 'Medium',
+                    pressure: '15 kPa', layerHeight: '0.2 mm', crosslinkTime: '5 min',
+                    cellDensity: '3.5×10⁶', mechanicalStrength: '1.5 MPa', degradationRate: '5 weeks'
+                }
+            },
+            'Liver': {
+                'GelMA': {
+                    temp: 37, speed: 4, ratio: '60:40', viability: 'High',
+                    pressure: '12 kPa', layerHeight: '0.2 mm', crosslinkTime: '3 min',
+                    cellDensity: '4×10⁶', mechanicalStrength: '1.2 MPa', degradationRate: '4 weeks'
+                },
+                'Alginate': {
+                    temp: 36, speed: 3, ratio: '55:45', viability: 'Medium',
+                    pressure: '10 kPa', layerHeight: '0.25 mm', crosslinkTime: '2 min',
+                    cellDensity: '3×10⁶', mechanicalStrength: '0.9 MPa', degradationRate: '6 weeks'
+                },
+                'Decellularized ECM': {
+                    temp: 37, speed: 2, ratio: '50:50', viability: 'Very High',
+                    pressure: '8 kPa', layerHeight: '0.3 mm', crosslinkTime: '4 min',
+                    cellDensity: '5×10⁶', mechanicalStrength: '0.7 MPa', degradationRate: '8 weeks'
+                }
+            },
+            'Heart': {
+                'GelMA': {
+                    temp: 37, speed: 3, ratio: '65:35', viability: 'High',
+                    pressure: '15 kPa', layerHeight: '0.15 mm', crosslinkTime: '4 min',
+                    cellDensity: '4.5×10⁶', mechanicalStrength: '1.8 MPa', degradationRate: '5 weeks'
+                },
+                'Collagen': {
+                    temp: 37, speed: 2, ratio: '60:40', viability: 'Medium',
+                    pressure: '12 kPa', layerHeight: '0.2 mm', crosslinkTime: '3 min',
+                    cellDensity: '3.5×10⁶', mechanicalStrength: '1.0 MPa', degradationRate: '4 weeks'
+                },
+                'Hyaluronic Acid': {
+                    temp: 36, speed: 1, ratio: '70:30', viability: 'Very High',
+                    pressure: '10 kPa', layerHeight: '0.25 mm', crosslinkTime: '5 min',
+                    cellDensity: '5×10⁶', mechanicalStrength: '0.6 MPa', degradationRate: '3 weeks'
+                }
+            }
+        };
+
+        // AI recommendation templates
+        const aiRecommendations = {
+            'Cartilage': {
+                'GelMA': "For cartilage tissue, GelMA provides excellent mechanical properties and cell viability. Consider increasing the crosslinking time slightly to enhance structural integrity while maintaining high cell viability.",
+                'Alginate': "Alginate is suitable for cartilage but may require supplemental growth factors. The AI recommends a slightly lower temperature to optimize cell viability with this bioink.",
+                'Hyaluronic Acid': "Hyaluronic acid mimics the native cartilage ECM exceptionally well. The AI suggests reducing print speed to maximize resolution for complex cartilage structures."
+            },
+            'Bone': {
+                'GelMA': "For bone tissue, GelMA with hydroxyapatite particles would enhance mineralization. The AI recommends higher temperature and pressure settings for better structural properties.",
+                'Alginate': "Alginate alone may not provide sufficient mechanical strength for bone. Consider blending with nanocellulose or other reinforcing agents.",
+                'Hydroxyapatite': "Pure hydroxyapatite provides excellent mineralization but poor cell viability. The AI strongly recommends using a secondary syringe with cell-laden bioink for viable constructs."
+            },
+            'Skin': {
+                'Collagen': "Collagen is ideal for skin tissue engineering. The AI recommends thinner layers and higher cell density to mimic native skin architecture.",
+                'Fibrin': "Fibrin supports excellent cell migration and proliferation. Consider adding growth factors to the secondary syringe for enhanced wound healing applications.",
+                'Silk Fibroin': "Silk fibroin provides good mechanical strength for skin. The AI suggests optimizing crosslinking parameters to balance strength and flexibility."
+            },
+            'Liver': {
+                'GelMA': "For liver tissue, GelMA supports hepatocyte function well. The AI recommends incorporating vascular channels via the secondary syringe for nutrient delivery.",
+                'Alginate': "Alginate is suitable for liver spheroids. Consider using the secondary syringe for sacrificial vascular networks to improve oxygen and nutrient diffusion.",
+                'Decellularized ECM': "Liver dECM provides the ideal microenvironment for hepatocytes. The AI suggests slower printing speeds to maintain complex 3D architectures."
+            },
+            'Heart': {
+                'GelMA': "For cardiac tissue, GelMA with conductive particles (e.g., gold nanowires) may enhance electrical coupling. The AI recommends anisotropic alignment patterns.",
+                'Collagen': "Collagen supports cardiomyocyte alignment. Consider using the secondary syringe for vascular networks to support thick cardiac patches.",
+                'Hyaluronic Acid': "HA provides excellent viscoelasticity for heart tissue. The AI suggests incorporating conductive polymers in the secondary syringe."
+            }
+        };
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            updateRangeValues();
+            showLanding();
+        });
+
+        // Create animated background particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random position and animation delay
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 20}s`;
+                particle.style.animationDuration = `${15 + Math.random() * 20}s`;
+                particle.style.width = `${2 + Math.random() * 3}px`;
+                particle.style.height = particle.style.width;
+                particle.style.opacity = 0.3 + Math.random() * 0.7;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Update all range value displays
+        function updateRangeValues() {
+            updateRangeValue('temp1');
+            updateRangeValue('speed1');
+            updateRangeValue('pressure1');
+            updateRangeValue('cellDensity');
+            updateRangeValue('flowRate');
+            updateRangeValue('crosslink');
+        }
+
+        // Update individual range value display
+        function updateRangeValue(id) {
+            const slider = document.getElementById(id);
+            const valueDisplay = document.getElementById(`${id}-value`);
+            
+            if (slider && valueDisplay) {
+                if (id === 'flowRate') {
+                    valueDisplay.textContent = `${parseFloat(slider.value).toFixed(1)} mL/min`;
+                } else if (id === 'temp1') {
+                    valueDisplay.textContent = `${slider.value}°C`;
+                } else if (id === 'speed1') {
+                    valueDisplay.textContent = `${slider.value} mm/s`;
+                } else if (id === 'pressure1') {
+                    valueDisplay.textContent = `${slider.value} kPa`;
+                } else if (id === 'cellDensity') {
+                    valueDisplay.textContent = `${slider.value}×10⁶ cells/mL`;
+                } else if (id === 'crosslink') {
+                    valueDisplay.textContent = `${slider.value} minutes`;
+                }
+            }
+        }
+
+        // Update bioink options based on selected tissue type
+        function updateBioinks() {
+            const tissueType = document.getElementById('tissueType1').value;
+            const bioinkSelect = document.getElementById('bioink1');
+            
+            // Clear existing options
+            bioinkSelect.innerHTML = '<option value="">Choose bioink...</option>';
+            
+            if (tissueType && advancedTissueData[tissueType]) {
+                // Add bioink options for selected tissue type
+                for (const bioink in advancedTissueData[tissueType]) {
+                    const option = document.createElement('option');
+                    option.value = bioink;
+                    option.textContent = bioink;
+                    bioinkSelect.appendChild(option);
+                }
+            }
+            
+            // Reset optimization results
+            document.getElementById('resultsGrid').innerHTML = '';
+            document.getElementById('aiInsightText').textContent = 'Configure your tissue type and bioinks to receive AI-powered optimization recommendations tailored to your specific bioprinting application.';
+        }
+
+        // Generate AI recommendations based on selected parameters
+        function generateRecommendations() {
+            const tissueType = document.getElementById('tissueType1').value;
+            const bioink = document.getElementById('bioink1').value;
+            
+            if (!tissueType || !bioink) return;
+            
+            const tissueData = advancedTissueData[tissueType][bioink];
+            const resultsGrid = document.getElementById('resultsGrid');
+            
+            // Clear previous results
+            resultsGrid.innerHTML = '';
+            
+            // Add optimized parameters
+            const parameters = [
+                { icon: '🌡️', label: 'Temperature', value: `${tissueData.temp}°C` },
+                { icon: '🏎️', label: 'Print Speed', value: `${tissueData.speed} mm/s` },
+                { icon: '⚖️', label: 'Bioink Ratio', value: tissueData.ratio },
+                { icon: '💪', label: 'Mechanical Strength', value: tissueData.mechanicalStrength },
+                { icon: '📏', label: 'Layer Height', value: tissueData.layerHeight },
+                { icon: '⏱️', label: 'Crosslink Time', value: tissueData.crosslinkTime },
+                { icon: '🧫', label: 'Cell Viability', value: tissueData.viability },
+                { icon: '🔄', label: 'Degradation Rate', value: tissueData.degradationRate }
+            ];
+            
+            // Create parameter cards
+            parameters.forEach(param => {
+                const card = document.createElement('div');
+                card.className = 'parameter-card fade-in';
+                card.innerHTML = `
+                    <span class="parameter-icon">${param.icon}</span>
+                    <div class="parameter-value">${param.value}</div>
+                    <div class="parameter-label">${param.label}</div>
+                `;
+                resultsGrid.appendChild(card);
+            });
+            
+            // Update AI metrics with some random variation
+            document.getElementById('viabilityScore').textContent = `${Math.min(100, Math.floor(tissueData.temp * 1.5 + Math.random() * 10))}%`;
+            document.getElementById('structuralScore').textContent = `${Math.min(100, Math.floor(tissueData.speed * 15 + Math.random() * 10))}%`;
+            document.getElementById('vascularScore').textContent = `${Math.min(100, Math.floor(70 + Math.random() * 20))}%`;
+            document.getElementById('printScore').textContent = `${Math.min(100, Math.floor(80 + Math.random() * 20))}%`;
+            
+            // Set AI recommendation text
+            if (aiRecommendations[tissueType] && aiRecommendations[tissueType][bioink]) {
+                document.getElementById('aiInsightText').textContent = aiRecommendations[tissueType][bioink];
+            } else {
+                document.getElementById('aiInsightText').textContent = "The AI has analyzed your parameters and recommends standard optimization protocols for this tissue type. Consider adjusting temperature and pressure for improved results.";
+            }
+        }
+
+        // Set syringe mode (single or dual)
+        function setSyringeMode(mode) {
+            const syringe2Panel = document.getElementById('syringe2Panel');
+            const buttons = document.querySelectorAll('.toggle-button');
+            
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if ((mode === 'single' && btn.textContent.includes('Single')) || 
+                    (mode === 'dual' && btn.textContent.includes('Dual'))) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            if (mode === 'dual') {
+                syringe2Panel.style.opacity = '1';
+                syringe2Panel.style.pointerEvents = 'auto';
+            } else {
+                syringe2Panel.style.opacity = '0.5';
+                syringe2Panel.style.pointerEvents = 'none';
+            }
+            
+            // Update AI metrics based on mode
+            if (mode === 'dual') {
+                document.getElementById('vascularScore').textContent = `${Math.min(100, Math.floor(85 + Math.random() * 10))}%`;
+            } else {
+                document.getElementById('vascularScore').textContent = `${Math.min(100, Math.floor(60 + Math.random() * 20))}%`;
+            }
+        }
+
+        // Start print simulation
+        function startPrintSimulation() {
+            const canvas = document.getElementById('simulationCanvas');
+            canvas.innerHTML = '';
+            
+            // Create layers with slight delay between them
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const layer = document.createElement('div');
+                    layer.className = 'print-layer';
+                    layer.style.bottom = `${i * 20}px`;
+                    layer.style.animationDelay = `${i * 0.5}s`;
+                    canvas.appendChild(layer);
+                }, i * 500);
+            }
+        }
+
+        // Navigation functions
+        function showLanding() {
+            document.getElementById('landingPage').style.display = 'flex';
+            document.getElementById('appContainer').style.display = 'none';
+            updateNavLinks('Home');
+        }
+
+        function showApp() {
+            document.getElementById('landingPage').style.display = 'none';
+            document.getElementById('appContainer').style.display = 'block';
+            updateNavLinks('Optimizer');
+        }
+
+        function showFeatures() {
+            document.getElementById('landingPage').style.display = 'flex';
+            document.getElementById('appContainer').style.display = 'none';
+            // Scroll to features section
+            document.querySelector('.features-grid').scrollIntoView({ behavior: 'smooth' });
+            updateNavLinks('Features');
+        }
+
+        function showAbout() {
+            // In a complete app, this would show an about page
+            alert("BioprintAI v1.0\nA cutting-edge platform for AI-optimized bioprinting research and development.");
+            updateNavLinks('About');
+        }
+
+        function updateNavLinks(activePage) {
+            const links = document.querySelectorAll('.nav-link');
+            links.forEach(link => {
+                link.classList.remove('active');
+                if (link.textContent === activePage) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
