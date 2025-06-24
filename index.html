@@ -46,6 +46,114 @@
             100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
         }
 
+        /* Improved dropdown menu styling */
+        select {
+            width: 100%;
+            padding: 12px;
+            background: rgba(30, 30, 60, 0.8);
+            border: 1px solid rgba(102, 126, 234, 0.5);
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            margin-bottom: 15px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        select:hover {
+            border-color: #667eea;
+            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+        }
+
+        option {
+            background: #1a1a2e;
+            color: white;
+            padding: 10px;
+        }
+
+        /* About Page Styles */
+        .about-container {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px 50px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .about-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .about-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .about-section p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #e0e0e0;
+        }
+
+        .about-section ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+            color: #e0e0e0;
+        }
+
+        .about-section li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .team-member h4 {
+            color: #667eea;
+            margin: 10px 0 5px;
+        }
+
+        .team-member p {
+            color: #b8bcc8;
+            font-size: 0.9em;
+        }
+
         /* Landing Page Styles */
         .landing-page {
             position: relative;
@@ -308,22 +416,6 @@
             font-weight: 600;
         }
 
-        select, input[type="range"] {
-            width: 100%;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            color: white;
-            font-size: 16px;
-        }
-
-        select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
-        }
-
         .range-container {
             position: relative;
         }
@@ -337,6 +429,16 @@
             padding: 2px 8px;
             border-radius: 10px;
             font-size: 0.8em;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
         }
 
         .ai-controls {
@@ -639,7 +741,7 @@
                 <h3>💉 Primary Syringe (Structural)</h3>
                 <div class="input-group">
                     <label>Tissue Type</label>
-                    <select id="tissueType1" onchange="updateBioinks()">
+                    <select id="tissueType1">
                         <option value="">Select tissue type...</option>
                         <option value="Cartilage">Cartilage</option>
                         <option value="Bone">Bone</option>
@@ -650,28 +752,28 @@
                 </div>
                 <div class="input-group">
                     <label>Bioink Type</label>
-                    <select id="bioink1" onchange="generateRecommendations()">
+                    <select id="bioink1">
                         <option value="">Choose bioink...</option>
                     </select>
                 </div>
                 <div class="input-group">
                     <label>Temperature Control</label>
                     <div class="range-container">
-                        <input type="range" id="temp1" min="25" max="65" value="37" oninput="updateRangeValue('temp1')">
+                        <input type="range" id="temp1" min="25" max="65" value="37">
                         <span class="range-value" id="temp1-value">37°C</span>
                     </div>
                 </div>
                 <div class="input-group">
                     <label>Print Speed</label>
                     <div class="range-container">
-                        <input type="range" id="speed1" min="1" max="10" value="5" oninput="updateRangeValue('speed1')">
+                        <input type="range" id="speed1" min="1" max="10" value="5">
                         <span class="range-value" id="speed1-value">5 mm/s</span>
                     </div>
                 </div>
                 <div class="input-group">
                     <label>Pressure</label>
                     <div class="range-container">
-                        <input type="range" id="pressure1" min="5" max="25" value="15" oninput="updateRangeValue('pressure1')">
+                        <input type="range" id="pressure1" min="5" max="25" value="15">
                         <span class="range-value" id="pressure1-value">15 kPa</span>
                     </div>
                 </div>
@@ -693,21 +795,21 @@
                 <div class="input-group">
                     <label>Cell Density</label>
                     <div class="range-container">
-                        <input type="range" id="cellDensity" min="1" max="10" value="5" oninput="updateRangeValue('cellDensity')">
+                        <input type="range" id="cellDensity" min="1" max="10" value="5">
                         <span class="range-value" id="cellDensity-value">5×10⁶ cells/mL</span>
                     </div>
                 </div>
                 <div class="input-group">
                     <label>Flow Rate</label>
                     <div class="range-container">
-                        <input type="range" id="flowRate" min="0.1" max="2" step="0.1" value="1" oninput="updateRangeValue('flowRate')">
+                        <input type="range" id="flowRate" min="0.1" max="2" step="0.1" value="1">
                         <span class="range-value" id="flowRate-value">1.0 mL/min</span>
                     </div>
                 </div>
                 <div class="input-group">
                     <label>Crosslinking</label>
                     <div class="range-container">
-                        <input type="range" id="crosslink" min="1" max="10" value="5" oninput="updateRangeValue('crosslink')">
+                        <input type="range" id="crosslink" min="1" max="10" value="5">
                         <span class="range-value" id="crosslink-value">5 minutes</span>
                     </div>
                 </div>
@@ -772,130 +874,160 @@
         </div>
     </div>
 
+    <!-- About Page -->
+    <div class="about-container" id="aboutContainer">
+        <div class="about-section">
+            <h2>🧬 What is Bioprinting?</h2>
+            <p>Bioprinting is an advanced manufacturing technique that uses 3D printing technology to create living tissues and organs by precisely depositing bioinks containing living cells in specific patterns. This revolutionary approach combines principles from biology, engineering, and computer science to fabricate complex biological structures layer by layer.</p>
+            <p>Unlike traditional 3D printing that uses plastics or metals, bioprinters use bioinks - specialized materials that often contain living cells, growth factors, and biomaterials that mimic the natural extracellular matrix.</p>
+        </div>
+
+        <div class="about-section">
+            <h2>🌟 Why is Bioprinting Important?</h2>
+            <p>Bioprinting has the potential to revolutionize medicine and biological research in several ways:</p>
+            <ul>
+                <li><strong>Organ Transplants:</strong> Could solve the shortage of donor organs by printing custom, patient-specific organs</li>
+                <li><strong>Drug Testing:</strong> Provides more accurate human tissue models for pharmaceutical testing</li>
+                <li><strong>Personalized Medicine:</strong> Enables creation of patient-specific tissues for treatment</li>
+                <li><strong>Medical Research:</strong> Allows scientists to study diseases in human-like tissues without human trials</li>
+                <li><strong>Burn Treatment:</strong> Can print skin grafts directly onto burn victims</li>
+            </ul>
+        </div>
+
+        <div class="about-section">
+            <h2>🏫 Westfield High School Bioprinting Project</h2>
+            <p>Our team at Westfield High School in Chantilly, Virginia has been working on advancing dual-syringe bioprinting technology to address key challenges in the field:</p>
+            <ul>
+                <li>Developing more precise control systems for dual-material deposition</li>
+                <li>Creating bioink formulations that maintain higher cell viability</li>
+                <li>Improving vascular network integration in printed tissues</li>
+                <li>Optimizing printing parameters using machine learning algorithms</li>
+                <li>Designing more accessible and cost-effective bioprinting solutions</li>
+            </ul>
+            <p>Our project focuses on the dual-syringe approach because it allows simultaneous printing of structural support materials and living cell-containing bioinks, which is crucial for creating complex, functional tissues.</p>
+        </div>
+
+        <div class="about-section">
+            <h2>🚀 Advancing Dual-Syringe Technology</h2>
+            <p>Our work at Westfield High School contributes to the broader field of bioprinting by:</p>
+            <ul>
+                <li>Developing new algorithms for synchronized dual-syringe control</li>
+                <li>Testing novel bioink combinations for improved tissue formation</li>
+                <li>Creating educational resources to make bioprinting more accessible</li>
+                <li>Designing experiments to validate the effectiveness of our approaches</li>
+                <li>Collaborating with local universities and research institutions</li>
+            </ul>
+            <p>We believe our work will help make bioprinting technology more practical and effective for real-world medical applications.</p>
+        </div>
+
+        <div class="about-section">
+            <h2>👩‍🔬 Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div style="font-size: 2.5em;">👨‍🔬</div>
+                    <h4>Project Lead</h4>
+                    <p>Oversees research direction and coordination</p>
+                </div>
+                <div class="team-member">
+                    <div style="font-size: 2.5em;">👩‍💻</div>
+                    <h4>Software Team</h4>
+                    <p>Develops control algorithms and AI optimization</p>
+                </div>
+                <div class="team-member">
+                    <div style="font-size: 2.5em;">🧪</div>
+                    <h4>Bioengineering Team</h4>
+                    <p>Works on bioink formulations and testing</p>
+                </div>
+                <div class="team-member">
+                    <div style="font-size: 2.5em;">🛠️</div>
+                    <h4>Hardware Team</h4>
+                    <p>Designs and builds the bioprinter systems</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Enhanced tissue data with dual-syringe capabilities
         const advancedTissueData = {
             'Cartilage': {
                 'GelMA': {
-                    temp: 37, speed: 5, ratio: '70:30', viability: 'High', 
-                    pressure: '15 kPa', layerHeight: '0.2 mm', crosslinkTime: '3 min',
-                    cellDensity: '3×10⁶', mechanicalStrength: '2.1 MPa', degradationRate: '4 weeks'
+                                        temp: 37, speed: 5, ratio: '70:30',
+                    pressure: 12,
+                    compatible: ['Cell-laden Collagen', 'Growth Factor Gel'],
+                    notes: 'Ideal for chondrocyte encapsulation and cartilage regeneration'
                 },
                 'Alginate': {
-                    temp: 35, speed: 4, ratio: '65:35', viability: 'Medium',
-                    pressure: '12 kPa', layerHeight: '0.25 mm', crosslinkTime: '2 min',
-                    cellDensity: '2.5×10⁶', mechanicalStrength: '1.8 MPa', degradationRate: '6 weeks'
-                },
-                'Hyaluronic Acid': {
-                    temp: 32, speed: 3, ratio: '80:20', viability: 'Very High',
-                    pressure: '10 kPa', layerHeight: '0.15 mm', crosslinkTime: '5 min',
-                    cellDensity: '4×10⁶', mechanicalStrength: '1.2 MPa', degradationRate: '3 weeks'
+                    temp: 25, speed: 4, ratio: '60:40',
+                    pressure: 15,
+                    compatible: ['Cell-laden Collagen', 'Vascular Alginate'],
+                    notes: 'Good mechanical properties for load-bearing applications'
                 }
             },
             'Bone': {
-                'GelMA': {
-                    temp: 60, speed: 3, ratio: '50:50', viability: 'Medium',
-                    pressure: '20 kPa', layerHeight: '0.3 mm', crosslinkTime: '4 min',
-                    cellDensity: '2×10⁶', mechanicalStrength: '3.5 MPa', degradationRate: '8 weeks'
+                'Hydroxyapatite Gel': {
+                    temp: 28, speed: 3, ratio: '80:20',
+                    pressure: 18,
+                    compatible: ['Growth Factor Gel', 'Sacrificial Gelatin'],
+                    notes: 'Excellent for osteogenic differentiation and mineralization'
                 },
-                'Alginate': {
-                    temp: 55, speed: 2, ratio: '40:60', viability: 'Low',
-                    pressure: '18 kPa', layerHeight: '0.35 mm', crosslinkTime: '3 min',
-                    cellDensity: '1.5×10⁶', mechanicalStrength: '2.8 MPa', degradationRate: '10 weeks'
-                },
-                'Hydroxyapatite': {
-                    temp: 65, speed: 1, ratio: '30:70', viability: 'Very Low',
-                    pressure: '25 kPa', layerHeight: '0.4 mm', crosslinkTime: '6 min',
-                    cellDensity: '1×10⁶', mechanicalStrength: '4.2 MPa', degradationRate: '12 weeks'
+                'PCL Composite': {
+                    temp: 65, speed: 2, ratio: '75:25',
+                    pressure: 20,
+                    compatible: ['Growth Factor Gel'],
+                    notes: 'High strength scaffold for bone tissue engineering'
                 }
             },
             'Skin': {
-                'Collagen': {
-                    temp: 37, speed: 6, ratio: '75:25', viability: 'High',
-                    pressure: '10 kPa', layerHeight: '0.1 mm', crosslinkTime: '2 min',
-                    cellDensity: '5×10⁶', mechanicalStrength: '1.0 MPa', degradationRate: '2 weeks'
+                'Collagen Type I': {
+                    temp: 37, speed: 6, ratio: '50:50',
+                    pressure: 10,
+                    compatible: ['Cell-laden Collagen', 'Growth Factor Gel'],
+                    notes: 'Natural ECM component for epidermal and dermal layers'
                 },
                 'Fibrin': {
-                    temp: 37, speed: 5, ratio: '70:30', viability: 'High',
-                    pressure: '12 kPa', layerHeight: '0.15 mm', crosslinkTime: '3 min',
-                    cellDensity: '4.5×10⁶', mechanicalStrength: '0.8 MPa', degradationRate: '3 weeks'
-                },
-                'Silk Fibroin': {
-                    temp: 38, speed: 4, ratio: '65:35', viability: 'Medium',
-                    pressure: '15 kPa', layerHeight: '0.2 mm', crosslinkTime: '5 min',
-                    cellDensity: '3.5×10⁶', mechanicalStrength: '1.5 MPa', degradationRate: '5 weeks'
+                    temp: 37, speed: 5, ratio: '60:40',
+                    pressure: 12,
+                    compatible: ['Cell-laden Collagen'],
+                    notes: 'Promotes keratinocyte migration and wound healing'
                 }
             },
             'Liver': {
-                'GelMA': {
-                    temp: 37, speed: 4, ratio: '60:40', viability: 'High',
-                    pressure: '12 kPa', layerHeight: '0.2 mm', crosslinkTime: '3 min',
-                    cellDensity: '4×10⁶', mechanicalStrength: '1.2 MPa', degradationRate: '4 weeks'
-                },
-                'Alginate': {
-                    temp: 36, speed: 3, ratio: '55:45', viability: 'Medium',
-                    pressure: '10 kPa', layerHeight: '0.25 mm', crosslinkTime: '2 min',
-                    cellDensity: '3×10⁶', mechanicalStrength: '0.9 MPa', degradationRate: '6 weeks'
-                },
                 'Decellularized ECM': {
-                    temp: 37, speed: 2, ratio: '50:50', viability: 'Very High',
-                    pressure: '8 kPa', layerHeight: '0.3 mm', crosslinkTime: '4 min',
-                    cellDensity: '5×10⁶', mechanicalStrength: '0.7 MPa', degradationRate: '8 weeks'
-                }
-            },
-            'Heart': {
-                'GelMA': {
-                    temp: 37, speed: 3, ratio: '65:35', viability: 'High',
-                    pressure: '15 kPa', layerHeight: '0.15 mm', crosslinkTime: '4 min',
-                    cellDensity: '4.5×10⁶', mechanicalStrength: '1.8 MPa', degradationRate: '5 weeks'
-                },
-                'Collagen': {
-                    temp: 37, speed: 2, ratio: '60:40', viability: 'Medium',
-                    pressure: '12 kPa', layerHeight: '0.2 mm', crosslinkTime: '3 min',
-                    cellDensity: '3.5×10⁶', mechanicalStrength: '1.0 MPa', degradationRate: '4 weeks'
+                    temp: 37, speed: 4, ratio: '65:35',
+                    pressure: 14,
+                    compatible: ['Vascular Alginate', 'Growth Factor Gel'],
+                    notes: 'Liver-specific ECM promotes hepatocyte function'
                 },
                 'Hyaluronic Acid': {
-                    temp: 36, speed: 1, ratio: '70:30', viability: 'Very High',
-                    pressure: '10 kPa', layerHeight: '0.25 mm', crosslinkTime: '5 min',
-                    cellDensity: '5×10⁶', mechanicalStrength: '0.6 MPa', degradationRate: '3 weeks'
+                    temp: 37, speed: 5, ratio: '55:45',
+                    pressure: 12,
+                    compatible: ['Cell-laden Collagen'],
+                    notes: 'Excellent for maintaining hepatocyte phenotype'
+                }
+            },
+            'Heart': {
+                'GelMA-PEGDA': {
+                    temp: 37, speed: 4, ratio: '70:30',
+                    pressure: 15,
+                    compatible: ['Cell-laden Collagen', 'Vascular Alginate'],
+                    notes: 'Optimal for cardiomyocyte alignment and beating'
+                },
+                'Silk Fibroin': {
+                    temp: 25, speed: 3, ratio: '80:20',
+                    pressure: 16,
+                    compatible: ['Growth Factor Gel'],
+                    notes: 'Excellent mechanical properties for cardiac patches'
                 }
             }
         };
 
-        // AI recommendation templates
-        const aiRecommendations = {
-            'Cartilage': {
-                'GelMA': "For cartilage tissue, GelMA provides excellent mechanical properties and cell viability. Consider increasing the crosslinking time slightly to enhance structural integrity while maintaining high cell viability.",
-                'Alginate': "Alginate is suitable for cartilage but may require supplemental growth factors. The AI recommends a slightly lower temperature to optimize cell viability with this bioink.",
-                'Hyaluronic Acid': "Hyaluronic acid mimics the native cartilage ECM exceptionally well. The AI suggests reducing print speed to maximize resolution for complex cartilage structures."
-            },
-            'Bone': {
-                'GelMA': "For bone tissue, GelMA with hydroxyapatite particles would enhance mineralization. The AI recommends higher temperature and pressure settings for better structural properties.",
-                'Alginate': "Alginate alone may not provide sufficient mechanical strength for bone. Consider blending with nanocellulose or other reinforcing agents.",
-                'Hydroxyapatite': "Pure hydroxyapatite provides excellent mineralization but poor cell viability. The AI strongly recommends using a secondary syringe with cell-laden bioink for viable constructs."
-            },
-            'Skin': {
-                'Collagen': "Collagen is ideal for skin tissue engineering. The AI recommends thinner layers and higher cell density to mimic native skin architecture.",
-                'Fibrin': "Fibrin supports excellent cell migration and proliferation. Consider adding growth factors to the secondary syringe for enhanced wound healing applications.",
-                'Silk Fibroin': "Silk fibroin provides good mechanical strength for skin. The AI suggests optimizing crosslinking parameters to balance strength and flexibility."
-            },
-            'Liver': {
-                'GelMA': "For liver tissue, GelMA supports hepatocyte function well. The AI recommends incorporating vascular channels via the secondary syringe for nutrient delivery.",
-                'Alginate': "Alginate is suitable for liver spheroids. Consider using the secondary syringe for sacrificial vascular networks to improve oxygen and nutrient diffusion.",
-                'Decellularized ECM': "Liver dECM provides the ideal microenvironment for hepatocytes. The AI suggests slower printing speeds to maintain complex 3D architectures."
-            },
-            'Heart': {
-                'GelMA': "For cardiac tissue, GelMA with conductive particles (e.g., gold nanowires) may enhance electrical coupling. The AI recommends anisotropic alignment patterns.",
-                'Collagen': "Collagen supports cardiomyocyte alignment. Consider using the secondary syringe for vascular networks to support thick cardiac patches.",
-                'Hyaluronic Acid': "HA provides excellent viscoelasticity for heart tissue. The AI suggests incorporating conductive polymers in the secondary syringe."
-            }
-        };
-
-        // Initialize the page
+        // Initialize the application
         document.addEventListener('DOMContentLoaded', function() {
             createParticles();
+            setupEventListeners();
+            updateBioinkOptions();
             updateRangeValues();
-            showLanding();
         });
 
         // Create animated background particles
@@ -907,52 +1039,50 @@
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                // Random position and animation delay
+                // Random positioning and animation delay
                 particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
                 particle.style.animationDelay = `${Math.random() * 20}s`;
-                particle.style.animationDuration = `${15 + Math.random() * 20}s`;
+                particle.style.animationDuration = `${15 + Math.random() * 15}s`;
+                particle.style.opacity = Math.random() * 0.5;
                 particle.style.width = `${2 + Math.random() * 3}px`;
                 particle.style.height = particle.style.width;
-                particle.style.opacity = 0.3 + Math.random() * 0.7;
                 
                 particlesContainer.appendChild(particle);
             }
         }
 
-        // Update all range value displays
-        function updateRangeValues() {
-            updateRangeValue('temp1');
-            updateRangeValue('speed1');
-            updateRangeValue('pressure1');
-            updateRangeValue('cellDensity');
-            updateRangeValue('flowRate');
-            updateRangeValue('crosslink');
-        }
-
-        // Update individual range value display
-        function updateRangeValue(id) {
-            const slider = document.getElementById(id);
-            const valueDisplay = document.getElementById(`${id}-value`);
+        // Set up all event listeners
+        function setupEventListeners() {
+            // Range input listeners
+            document.getElementById('temp1').addEventListener('input', updateRangeValues);
+            document.getElementById('speed1').addEventListener('input', updateRangeValues);
+            document.getElementById('pressure1').addEventListener('input', updateRangeValues);
+            document.getElementById('cellDensity').addEventListener('input', updateRangeValues);
+            document.getElementById('flowRate').addEventListener('input', updateRangeValues);
+            document.getElementById('crosslink').addEventListener('input', updateRangeValues);
             
-            if (slider && valueDisplay) {
-                if (id === 'flowRate') {
-                    valueDisplay.textContent = `${parseFloat(slider.value).toFixed(1)} mL/min`;
-                } else if (id === 'temp1') {
-                    valueDisplay.textContent = `${slider.value}°C`;
-                } else if (id === 'speed1') {
-                    valueDisplay.textContent = `${slider.value} mm/s`;
-                } else if (id === 'pressure1') {
-                    valueDisplay.textContent = `${slider.value} kPa`;
-                } else if (id === 'cellDensity') {
-                    valueDisplay.textContent = `${slider.value}×10⁶ cells/mL`;
-                } else if (id === 'crosslink') {
-                    valueDisplay.textContent = `${slider.value} minutes`;
-                }
-            }
+            // Tissue type change listener
+            document.getElementById('tissueType1').addEventListener('change', function() {
+                updateBioinkOptions();
+                updateAIOptimization();
+            });
+            
+            // Bioink change listeners
+            document.getElementById('bioink1').addEventListener('change', updateAIOptimization);
+            document.getElementById('bioink2').addEventListener('change', updateAIOptimization);
+            
+            // Navigation listeners
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
         }
 
         // Update bioink options based on selected tissue type
-        function updateBioinks() {
+        function updateBioinkOptions() {
             const tissueType = document.getElementById('tissueType1').value;
             const bioinkSelect = document.getElementById('bioink1');
             
@@ -960,7 +1090,7 @@
             bioinkSelect.innerHTML = '<option value="">Choose bioink...</option>';
             
             if (tissueType && advancedTissueData[tissueType]) {
-                // Add bioink options for selected tissue type
+                // Add tissue-specific bioinks
                 for (const bioink in advancedTissueData[tissueType]) {
                     const option = document.createElement('option');
                     option.value = bioink;
@@ -969,89 +1099,146 @@
                 }
             }
             
-            // Reset optimization results
-            document.getElementById('resultsGrid').innerHTML = '';
-            document.getElementById('aiInsightText').textContent = 'Configure your tissue type and bioinks to receive AI-powered optimization recommendations tailored to your specific bioprinting application.';
+            // Trigger AI optimization update
+            updateAIOptimization();
         }
 
-        // Generate AI recommendations based on selected parameters
-        function generateRecommendations() {
+        // Update range input value displays
+        function updateRangeValues() {
+            document.getElementById('temp1-value').textContent = document.getElementById('temp1').value + '°C';
+            document.getElementById('speed1-value').textContent = document.getElementById('speed1').value + ' mm/s';
+            document.getElementById('pressure1-value').textContent = document.getElementById('pressure1').value + ' kPa';
+            document.getElementById('cellDensity-value').textContent = document.getElementById('cellDensity').value + '×10⁶ cells/mL';
+            document.getElementById('flowRate-value').textContent = document.getElementById('flowRate').value + ' mL/min';
+            document.getElementById('crosslink-value').textContent = document.getElementById('crosslink').value + ' minutes';
+            
+            // Update AI optimization when parameters change
+            updateAIOptimization();
+        }
+
+        // Set syringe mode (single or dual)
+        function setSyringeMode(mode) {
+            const syringe2Panel = document.getElementById('syringe2Panel');
+            const toggleButtons = document.querySelectorAll('.toggle-button');
+            
+            toggleButtons.forEach(btn => btn.classList.remove('active'));
+            
+            if (mode === 'dual') {
+                syringe2Panel.style.opacity = '1';
+                syringe2Panel.style.pointerEvents = 'auto';
+                document.querySelector('.toggle-button:nth-child(2)').classList.add('active');
+            } else {
+                syringe2Panel.style.opacity = '0.5';
+                syringe2Panel.style.pointerEvents = 'none';
+                document.querySelector('.toggle-button:nth-child(1)').classList.add('active');
+            }
+            
+            updateAIOptimization();
+        }
+
+        // Update AI optimization metrics and recommendations
+        function updateAIOptimization() {
             const tissueType = document.getElementById('tissueType1').value;
-            const bioink = document.getElementById('bioink1').value;
+            const bioink1 = document.getElementById('bioink1').value;
+            const bioink2 = document.getElementById('bioink2').value;
+            const isDual = document.getElementById('syringe2Panel').style.opacity === '1';
             
-            if (!tissueType || !bioink) return;
+            // Only proceed if we have a tissue type and primary bioink
+            if (!tissueType || !bioink1) {
+                document.getElementById('aiInsightText').textContent = 
+                    'Configure your tissue type and bioinks to receive AI-powered optimization recommendations.';
+                return;
+            }
             
-            const tissueData = advancedTissueData[tissueType][bioink];
+            // Get tissue data
+            const tissueData = advancedTissueData[tissueType][bioink1];
+            
+            // Calculate scores based on parameters
+            let viabilityScore = 85 + Math.floor(Math.random() * 10);
+            let structuralScore = 80 + Math.floor(Math.random() * 15);
+            let vascularScore = isDual ? 70 + Math.floor(Math.random() * 20) : 30;
+            let printScore = 85 + Math.floor(Math.random() * 10);
+            
+            // Apply bonuses for compatible bioink combinations
+            if (isDual && tissueData.compatible.includes(bioink2)) {
+                viabilityScore += 5;
+                vascularScore += 10;
+                printScore += 5;
+            } else if (isDual) {
+                viabilityScore -= 5;
+                printScore -= 5;
+            }
+            
+            // Clamp scores between 0-100
+            viabilityScore = Math.max(0, Math.min(100, viabilityScore));
+            structuralScore = Math.max(0, Math.min(100, structuralScore));
+            vascularScore = Math.max(0, Math.min(100, vascularScore));
+            printScore = Math.max(0, Math.min(100, printScore));
+            
+            // Update score displays
+            document.getElementById('viabilityScore').textContent = viabilityScore + '%';
+            document.getElementById('structuralScore').textContent = structuralScore + '%';
+            document.getElementById('vascularScore').textContent = vascularScore + '%';
+            document.getElementById('printScore').textContent = printScore + '%';
+            
+            // Generate parameter cards
             const resultsGrid = document.getElementById('resultsGrid');
-            
-            // Clear previous results
             resultsGrid.innerHTML = '';
             
-            // Add optimized parameters
             const parameters = [
-                { icon: '🌡️', label: 'Temperature', value: `${tissueData.temp}°C` },
-                { icon: '🏎️', label: 'Print Speed', value: `${tissueData.speed} mm/s` },
-                { icon: '⚖️', label: 'Bioink Ratio', value: tissueData.ratio },
-                { icon: '💪', label: 'Mechanical Strength', value: tissueData.mechanicalStrength },
-                { icon: '📏', label: 'Layer Height', value: tissueData.layerHeight },
-                { icon: '⏱️', label: 'Crosslink Time', value: tissueData.crosslinkTime },
-                { icon: '🧫', label: 'Cell Viability', value: tissueData.viability },
-                { icon: '🔄', label: 'Degradation Rate', value: tissueData.degradationRate }
+                { icon: '🌡️', name: 'Temperature', value: tissueData.temp + '°C' },
+                { icon: '🏎️', name: 'Print Speed', value: tissueData.speed + ' mm/s' },
+                { icon: '⚖️', name: 'Material Ratio', value: tissueData.ratio },
+                { icon: '💪', name: 'Pressure', value: tissueData.pressure + ' kPa' }
             ];
             
-            // Create parameter cards
+            if (isDual) {
+                parameters.push(
+                    { icon: '🧫', name: 'Cell Density', value: document.getElementById('cellDensity').value + '×10⁶/mL' },
+                    { icon: '⏱️', name: 'Crosslinking', value: document.getElementById('crosslink').value + ' min' }
+                );
+            }
+            
             parameters.forEach(param => {
                 const card = document.createElement('div');
                 card.className = 'parameter-card fade-in';
                 card.innerHTML = `
                     <span class="parameter-icon">${param.icon}</span>
                     <div class="parameter-value">${param.value}</div>
-                    <div class="parameter-label">${param.label}</div>
+                    <div class="parameter-label">${param.name}</div>
                 `;
                 resultsGrid.appendChild(card);
             });
             
-            // Update AI metrics with some random variation
-            document.getElementById('viabilityScore').textContent = `${Math.min(100, Math.floor(tissueData.temp * 1.5 + Math.random() * 10))}%`;
-            document.getElementById('structuralScore').textContent = `${Math.min(100, Math.floor(tissueData.speed * 15 + Math.random() * 10))}%`;
-            document.getElementById('vascularScore').textContent = `${Math.min(100, Math.floor(70 + Math.random() * 20))}%`;
-            document.getElementById('printScore').textContent = `${Math.min(100, Math.floor(80 + Math.random() * 20))}%`;
+            // Generate AI insight text
+            let insightText = `For ${tissueType} tissue using ${bioink1}`;
             
-            // Set AI recommendation text
-            if (aiRecommendations[tissueType] && aiRecommendations[tissueType][bioink]) {
-                document.getElementById('aiInsightText').textContent = aiRecommendations[tissueType][bioink];
-            } else {
-                document.getElementById('aiInsightText').textContent = "The AI has analyzed your parameters and recommends standard optimization protocols for this tissue type. Consider adjusting temperature and pressure for improved results.";
-            }
-        }
-
-        // Set syringe mode (single or dual)
-        function setSyringeMode(mode) {
-            const syringe2Panel = document.getElementById('syringe2Panel');
-            const buttons = document.querySelectorAll('.toggle-button');
-            
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-                if ((mode === 'single' && btn.textContent.includes('Single')) || 
-                    (mode === 'dual' && btn.textContent.includes('Dual'))) {
-                    btn.classList.add('active');
+            if (isDual) {
+                insightText += ` combined with ${bioink2}, `;
+                if (tissueData.compatible.includes(bioink2)) {
+                    insightText += 'this is an optimal combination. ';
+                } else {
+                    insightText += 'consider switching to a more compatible secondary bioink for better results. ';
                 }
-            });
-            
-            if (mode === 'dual') {
-                syringe2Panel.style.opacity = '1';
-                syringe2Panel.style.pointerEvents = 'auto';
             } else {
-                syringe2Panel.style.opacity = '0.5';
-                syringe2Panel.style.pointerEvents = 'none';
+                insightText += ', ';
             }
             
-            // Update AI metrics based on mode
-            if (mode === 'dual') {
-                document.getElementById('vascularScore').textContent = `${Math.min(100, Math.floor(85 + Math.random() * 10))}%`;
+            insightText += `our AI recommends maintaining temperature at ${tissueData.temp}°C and pressure at ${tissueData.pressure} kPa for optimal results. `;
+            
+            if (viabilityScore > 90) {
+                insightText += 'Cell viability predictions are excellent with these parameters. ';
+            } else if (viabilityScore > 75) {
+                insightText += 'Cell viability is good but could potentially be improved. ';
             } else {
-                document.getElementById('vascularScore').textContent = `${Math.min(100, Math.floor(60 + Math.random() * 20))}%`;
+                insightText += 'Cell viability may be suboptimal with these parameters. ';
             }
+            
+            if (isDual) {
+                insightText += 'The dual-syringe approach enables vascular network formation. ';
+            }
+            
+            document.getElementById('aiInsightText').textContent = insightText;
         }
 
         // Start print simulation
@@ -1059,52 +1246,57 @@
             const canvas = document.getElementById('simulationCanvas');
             canvas.innerHTML = '';
             
-            // Create layers with slight delay between them
+            // Create layers with random delays
             for (let i = 0; i < 15; i++) {
-                setTimeout(() => {
-                    const layer = document.createElement('div');
-                    layer.className = 'print-layer';
-                    layer.style.bottom = `${i * 20}px`;
-                    layer.style.animationDelay = `${i * 0.5}s`;
-                    canvas.appendChild(layer);
-                }, i * 500);
+                const layer = document.createElement('div');
+                layer.className = 'print-layer';
+                layer.style.bottom = `${i * 20}px`;
+                layer.style.animationDelay = `${i * 0.5}s`;
+                canvas.appendChild(layer);
             }
+            
+            // Show completion message after all layers
+            setTimeout(() => {
+                const complete = document.createElement('div');
+                complete.style.position = 'absolute';
+                complete.style.top = '50%';
+                complete.style.left = '50%';
+                complete.style.transform = 'translate(-50%, -50%)';
+                complete.style.color = '#4ade80';
+                complete.style.fontWeight = 'bold';
+                complete.textContent = 'Print Complete!';
+                canvas.appendChild(complete);
+            }, 8000);
         }
 
         // Navigation functions
         function showLanding() {
-            document.getElementById('landingPage').style.display = 'flex';
+            document.getElementById('landingPage').style.display = 'block';
             document.getElementById('appContainer').style.display = 'none';
-            updateNavLinks('Home');
+            document.getElementById('aboutContainer').style.display = 'none';
         }
 
         function showApp() {
             document.getElementById('landingPage').style.display = 'none';
             document.getElementById('appContainer').style.display = 'block';
-            updateNavLinks('Optimizer');
-        }
-
-        function showFeatures() {
-            document.getElementById('landingPage').style.display = 'flex';
-            document.getElementById('appContainer').style.display = 'none';
-            // Scroll to features section
-            document.querySelector('.features-grid').scrollIntoView({ behavior: 'smooth' });
-            updateNavLinks('Features');
+            document.getElementById('aboutContainer').style.display = 'none';
+            updateAIOptimization();
         }
 
         function showAbout() {
-            // In a complete app, this would show an about page
-            alert("BioprintAI v1.0\nA cutting-edge platform for AI-optimized bioprinting research and development.");
-            updateNavLinks('About');
+            document.getElementById('landingPage').style.display = 'none';
+            document.getElementById('appContainer').style.display = 'none';
+            document.getElementById('aboutContainer').style.display = 'block';
         }
 
-        function updateNavLinks(activePage) {
-            const links = document.querySelectorAll('.nav-link');
-            links.forEach(link => {
-                link.classList.remove('active');
-                if (link.textContent === activePage) {
-                    link.classList.add('active');
-                }
+        function showFeatures() {
+            // For this demo, features are part of the landing page
+            document.getElementById('landingPage').style.display = 'block';
+            document.getElementById('appContainer').style.display = 'none';
+            document.getElementById('aboutContainer').style.display = 'none';
+            window.scrollTo({
+                top: document.querySelector('.features-grid').offsetTop - 80,
+                behavior: 'smooth'
             });
         }
     </script>
