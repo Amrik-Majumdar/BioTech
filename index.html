@@ -2390,6 +2390,13 @@
                 }
             }
         });
+        
+              function showOptimizerSections() {
+                document.getElementById('optimizerSections').style.display = 'block';
+                document.getElementById('optimizerSections').scrollIntoView({ behavior: 'smooth' });
+              }
+              document.getElementById('launchOptimizerBtn').onclick = showOptimizerSections;
+              document.getElementById('optimizerNavbarBtn').onclick = showOptimizerSections;
         </script>
 </body>
 </html>
