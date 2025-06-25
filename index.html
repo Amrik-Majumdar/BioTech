@@ -240,6 +240,11 @@
             background: radial-gradient(ellipse at center, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
         }
 
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         .hero-content h1 {
             font-size: 4em;
             margin-bottom: 20px;
@@ -258,7 +263,6 @@
         .hero-content p {
             font-size: 1.3em;
             margin-bottom: 30px;
-            max-width: 800px;
             line-height: 1.6;
             color: #b8bcc8;
         }
@@ -575,6 +579,13 @@
             margin-top: 5px;
         }
 
+        /* Center the AI Optimization button */
+        .ai-optimize-btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
         .results-section {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -667,6 +678,60 @@
             100% { transform: translate(-50px, -50px); }
         }
 
+        /* 3D Preview Section */
+        .preview-3d {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .preview-3d:hover {
+            border-color: rgba(102, 126, 234, 0.3);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+        }
+
+        .preview-placeholder {
+            width: 100%;
+            height: 300px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #667eea;
+            font-size: 1.2em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .preview-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(102, 126, 234, 0.1) 0%, 
+                rgba(118, 75, 162, 0.1) 50%, 
+                rgba(102, 126, 234, 0.1) 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Print Simulation */
         .print-simulation {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -699,7 +764,7 @@
             height: 30px;
             background: #667eea;
             border-radius: 50%;
-            top: 10px;
+            bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 10;
@@ -711,7 +776,7 @@
             width: 8px;
             height: 15px;
             background: #333;
-            top: 30px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 10;
@@ -751,6 +816,25 @@
         .start-print-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(74, 222, 128, 0.3);
+        }
+
+        /* Save/Load Configuration */
+        .save-load-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .save-load-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
 
         .disclaimer {
@@ -805,57 +889,19 @@
             text-align: center;
         }
 
-        /* 3D Preview Section */
-        .preview-3d {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
+        /* Bounce Animation for Feature Icons */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
-        .preview-3d:hover {
-            border-color: rgba(102, 126, 234, 0.3);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+        .bounce-animation {
+            animation: bounce 2s infinite;
         }
 
-        .preview-placeholder {
-            width: 100%;
-            height: 300px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            margin: 20px auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #667eea;
-            font-size: 1.2em;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .preview-placeholder::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, 
-                rgba(102, 126, 234, 0.1) 0%, 
-                rgba(118, 75, 162, 0.1) 50%, 
-                rgba(102, 126, 234, 0.1) 100%);
-            background-size: 200% 200%;
-            animation: gradientShift 3s ease infinite;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Smooth transitions for value changes */
+        .smooth-transition {
+            transition: all 0.5s ease-out;
         }
 
         /* Responsive Design */
@@ -929,7 +975,7 @@
             .syringe-panel {
                 padding: 20px;
             }
-            .ai-controls, .results-section, .print-simulation, .preview-3d {
+            .ai-controls, .results-section, .print-simulation, .preview-3d, .save-load-section {
                 padding: 20px;
             }
             .optimization-grid {
@@ -942,6 +988,10 @@
                 padding: 10px 15px;
                 min-width: 120px;
                 font-size: 0.9em;
+            }
+            .save-load-buttons {
+                flex-direction: column;
+                align-items: center;
             }
         }
 
@@ -962,36 +1012,6 @@
             .about-container, .app-container {
                 padding: 80px 15px 20px;
             }
-        }
-
-        /* Loading and Animation States */
-        .loading {
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        .fade-in {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Bounce Animation for Feature Icons */
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .bounce-animation {
-            animation: bounce 2s infinite;
-        }
-
-        /* Smooth transitions for value changes */
-        .smooth-transition {
-            transition: all 0.5s ease-out;
         }
     </style>
 </head>
@@ -1026,8 +1046,8 @@
                 <h1>🧬 Dual-Syringe AI-Optimized Bioprinting</h1>
                 <p>Revolutionary tissue engineering platform combining dual-material printing with artificial intelligence optimization for next-generation biomedical applications</p>
                 <div class="cta-buttons">
-                    <button class="cta-button cta-primary" onclick="showApp()">Launch Optimizer</button>
-                    <button class="cta-button cta-secondary" onclick="showFeatures()">Explore Features</button>
+                    <button class="cta-button cta-primary" onclick="showApp(); setActiveNav('Optimizer')">Launch Optimizer</button>
+                    <button class="cta-button cta-secondary" onclick="showFeatures(); setActiveNav('Features')">Explore Features</button>
                 </div>
             </div>
         </section>
@@ -1164,9 +1184,14 @@
         <!-- 3D Preview Section -->
         <div class="preview-3d">
             <h3>🔍 3D Tissue Preview</h3>
-            <p>Visualize your bioprinted tissue structure before printing (Three.js implementation coming soon)</p>
             <div class="preview-placeholder">
-                <div>3D Tissue Visualization Will Appear Here</div>
+                <div style="text-align: center; padding: 20px;">
+                    <div style="font-size: 1.2em; margin-bottom: 10px;">3D Preview Coming Soon</div>
+                    <div style="font-size: 0.9em;">
+                        3D preview functionality will be implemented with Three.js in the next version.<br>
+                        This will allow interactive visualization of the bioprinted tissue structure.
+                    </div>
+                </div>
             </div>
             <button class="start-print-btn" onclick="generate3DPreview()">Generate 3D Preview</button>
         </div>
@@ -1196,7 +1221,9 @@
                     <div class="metric-label">Print Quality</div>
                 </div>
             </div>
-            <button class="start-print-btn" onclick="simulateAIThinking()">Run AI Optimization</button>
+            <div class="ai-optimize-btn-container">
+                <button class="start-print-btn" onclick="simulateAIThinking()">Run AI Optimization</button>
+            </div>
         </div>
 
         <!-- Results Section -->
@@ -1226,9 +1253,13 @@
         </div>
 
         <!-- Save/Load Configuration -->
-        <div class="ai-controls">
+        <div class="save-load-section">
             <h3>💾 Save/Load Configuration</h3>
-            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <p style="text-align: center; margin-bottom: 20px; color: #b8bcc8;">
+                Save your current settings to your browser or load previously saved configurations.<br>
+                This allows you to return to your preferred setup without re-entering all parameters.
+            </p>
+            <div class="save-load-buttons">
                 <button class="start-print-btn" style="background: linear-gradient(45deg, #667eea, #764ba2); min-width: 200px;" onclick="saveConfiguration()">
                     Save Current Configuration
                 </button>
@@ -1236,9 +1267,6 @@
                     Load Saved Configuration
                 </button>
             </div>
-            <p style="text-align: center; margin-top: 15px; color: #b8bcc8;">
-                Your settings will be saved in your browser's local storage
-            </p>
         </div>
 
         <!-- Disclaimer -->
@@ -1480,6 +1508,16 @@
                     document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
                     this.classList.add('active');
                 });
+            });
+        }
+
+        // Set active navigation item
+        function setActiveNav(section) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.textContent.includes(section)) {
+                    link.classList.add('active');
+                }
             });
         }
 
@@ -1736,7 +1774,7 @@
             document.getElementById('aiInsightText').textContent = insightText;
         }
 
-        // Start print simulation with enhanced animation
+        // Start print simulation from bottom
         function startPrintSimulation() {
             const canvas = document.getElementById('simulationCanvas');
             const printHead = document.getElementById('printHead');
@@ -1749,32 +1787,32 @@
             // Reset print head and nozzle
             printHead.style.display = 'block';
             printNozzle.style.display = 'block';
-            printHead.style.top = '10px';
-            printNozzle.style.top = '30px';
+            printHead.style.bottom = '10px';
+            printNozzle.style.bottom = '40px';
             
-            // Animate print head movement
+            // Animate print head movement from bottom to top
             let position = 10;
             const moveInterval = setInterval(() => {
                 position += 2;
-                printHead.style.top = `${position}px`;
-                printNozzle.style.top = `${position + 20}px`;
+                printHead.style.bottom = `${position}px`;
+                printNozzle.style.bottom = `${position + 30}px`;
                 
                 // Create layers at certain intervals
                 if (position % 30 === 0 && position < 250) {
-                    createPrintLayer(position + 30);
+                    createPrintLayer(300 - position - 30);
                 }
                 
-                // Stop at bottom
+                // Stop at top
                 if (position >= 250) {
                     clearInterval(moveInterval);
                     printComplete();
                 }
             }, 50);
             
-            function createPrintLayer(topPosition) {
+            function createPrintLayer(bottomPosition) {
                 const layer = document.createElement('div');
                 layer.className = 'print-layer';
-                layer.style.bottom = `${300 - topPosition}px`;
+                layer.style.bottom = `${bottomPosition}px`;
                 
                 // Randomize layer width slightly for organic look
                 const widthVariation = 70 + Math.random() * 20;
@@ -1814,15 +1852,19 @@
         // Generate 3D preview placeholder
         function generate3DPreview() {
             const placeholder = document.querySelector('.preview-placeholder');
-            placeholder.innerHTML = '<div>3D Visualization Coming Soon</div><div style="font-size:0.8em;margin-top:10px;">Three.js implementation in progress</div>';
-            
-            // Add pulsing animation to indicate placeholder
-            placeholder.style.animation = 'pulse 2s infinite';
+            placeholder.innerHTML = `
+                <div style="text-align: center; padding: 20px;">
+                    <div style="font-size: 1.2em; margin-bottom: 10px;">3D Preview Coming Soon</div>
+                    <div style="font-size: 0.9em;">
+                        3D preview functionality will be implemented with Three.js in the next version.<br>
+                        This will allow interactive visualization of the bioprinted tissue structure.
+                    </div>
+                </div>
+            `;
             
             // Show message
             setTimeout(() => {
                 alert('3D preview functionality will be implemented with Three.js in the next version. This will allow interactive visualization of the bioprinted tissue structure.');
-                placeholder.style.animation = '';
             }, 1000);
         }
 
@@ -1911,12 +1953,14 @@
             document.getElementById('landingPage').style.display = 'block';
             document.getElementById('appContainer').style.display = 'none';
             document.getElementById('aboutContainer').style.display = 'none';
+            setActiveNav('Home');
         }
 
         function showApp() {
             document.getElementById('landingPage').style.display = 'none';
             document.getElementById('appContainer').style.display = 'block';
             document.getElementById('aboutContainer').style.display = 'none';
+            setActiveNav('Optimizer');
             updateAIOptimization();
         }
 
@@ -1924,6 +1968,7 @@
             document.getElementById('landingPage').style.display = 'none';
             document.getElementById('appContainer').style.display = 'none';
             document.getElementById('aboutContainer').style.display = 'block';
+            setActiveNav('About');
         }
 
         function showFeatures() {
@@ -1931,6 +1976,7 @@
             document.getElementById('landingPage').style.display = 'block';
             document.getElementById('appContainer').style.display = 'none';
             document.getElementById('aboutContainer').style.display = 'none';
+            setActiveNav('Features');
             window.scrollTo({
                 top: document.querySelector('.features-grid').offsetTop - 80,
                 behavior: 'smooth'
