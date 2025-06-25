@@ -20,7 +20,6 @@
             -webkit-text-size-adjust: 100%;
         }
 
-        /* Animated background particles */
         .particles {
             position: fixed;
             top: 0;
@@ -47,7 +46,6 @@
             100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
         }
 
-        /* Improved dropdown menu styling */
         select {
             width: 100%;
             padding: 12px;
@@ -85,7 +83,6 @@
             padding: 10px;
         }
 
-        /* About Page Styles */
         .about-container {
             display: none;
             max-width: 1200px;
@@ -161,7 +158,6 @@
             font-size: 0.9em;
         }
 
-        /* Landing Page Styles */
         .landing-page {
             position: relative;
             min-height: 100vh;
@@ -219,7 +215,6 @@
             color: #667eea;
         }
 
-        /* Mobile Menu Button */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -353,7 +348,6 @@
             color: #667eea;
         }
 
-        /* Application Interface */
         .app-container {
             display: none;
             max-width: 1400px;
@@ -543,9 +537,8 @@
         }
 
         @keyframes pulse {
-            0% { opacity: 0.8; }
-            50% { opacity: 1; }
-            100% { opacity: 0.8; }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
 
         .optimization-grid {
@@ -556,1646 +549,287 @@
 
         .optimization-metric {
             background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
             padding: 15px;
-            border-radius: 10px;
             text-align: center;
-            transition: all 0.3s ease;
+            color: #e0e0e0;
         }
-
-        .optimization-metric:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.1);
-        }
-
-        .metric-value {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #4ade80;
-            transition: all 0.5s ease;
-        }
-
-        .metric-label {
-            font-size: 0.9em;
-            color: #b8bcc8;
-            margin-top: 5px;
-        }
-
-        /* Center the AI Optimization button */
-        .ai-optimize-btn-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .results-section {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
-        }
-
-        .results-section:hover {
-            border-color: rgba(102, 126, 234, 0.3);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
-        }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-
-        .parameter-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .parameter-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
-            border-color: #667eea;
-        }
-
-        .parameter-icon {
-            font-size: 2em;
-            margin-bottom: 10px;
+        .optimization-metric span {
             display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .parameter-card:hover .parameter-icon {
-            transform: scale(1.2);
-        }
-
-        .parameter-value {
-            font-size: 1.4em;
-            font-weight: 700;
+            font-size: 1.2em;
+            font-weight: bold;
             color: #4ade80;
-            margin-bottom: 5px;
-            transition: all 0.5s ease;
         }
-
-        .parameter-label {
-            color: #b8bcc8;
-            font-size: 0.9em;
+        @media (max-width: 700px) {
+            .hero-content h1 { font-size: 2.2em; }
+            .nav-content { flex-direction: column; gap: 10px; }
+            .features-grid, .team-grid { grid-template-columns: 1fr; }
+            .app-container, .about-container { padding: 80px 5px 20px; }
         }
-
-        .ai-insight {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 20px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .ai-insight:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-
-        .ai-insight::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            animation: float-bg 15s linear infinite;
-        }
-
-        @keyframes float-bg {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-50px, -50px); }
-        }
-
-        /* 3D Preview Section */
-        .preview-3d {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .preview-3d:hover {
-            border-color: rgba(102, 126, 234, 0.3);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
-        }
-
-        .preview-placeholder {
-            width: 100%;
-            height: 300px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            margin: 20px auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #667eea;
-            font-size: 1.2em;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .preview-placeholder::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, 
-                rgba(102, 126, 234, 0.1) 0%, 
-                rgba(118, 75, 162, 0.1) 50%, 
-                rgba(102, 126, 234, 0.1) 100%);
-            background-size: 200% 200%;
-            animation: gradientShift 3s ease infinite;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Print Simulation */
-        .print-simulation {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .print-simulation:hover {
-            border-color: rgba(102, 126, 234, 0.3);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
-        }
-
-        .simulation-canvas {
-            width: 100%;
-            max-width: 400px;
-            height: 300px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            margin: 20px auto;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .print-head {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background: #667eea;
-            border-radius: 50%;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            display: none;
-        }
-
-        .print-nozzle {
-            position: absolute;
-            width: 8px;
-            height: 15px;
-            background: #333;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            display: none;
-        }
-
-        .print-layer {
-            position: absolute;
-            width: 80%;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            left: 10%;
-            border-radius: 2px;
-            opacity: 0;
-            animation: print-animation 0.5s ease-in-out forwards;
-        }
-
-        @keyframes print-animation {
-            0% { opacity: 0; transform: scaleX(0); }
-            100% { opacity: 1; transform: scaleX(1); }
-        }
-
-        .start-print-btn {
-            background: linear-gradient(45deg, #4ade80, #22c55e);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            font-size: 1.1em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-            min-width: 250px;
-        }
-
-        .start-print-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.3);
-        }
-
-        /* Save/Load Configuration */
-        .save-load-section {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .save-load-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .disclaimer {
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 4px solid #fbbf24;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 30px;
-            color: #b8bcc8;
-            transition: all 0.3s ease;
-        }
-
-        .disclaimer:hover {
-            border-left-color: #667eea;
-            box-shadow: 0 5px 15px rgba(251, 191, 36, 0.1);
-        }
-
-        /* Loading Animation */
-        .loading-container {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 15, 35, 0.8);
-            backdrop-filter: blur(5px);
-            z-index: 1001;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(102, 126, 234, 0.3);
-            border-radius: 50%;
-            border-top-color: #667eea;
-            animation: spin 1s ease-in-out infinite;
-            margin-bottom: 20px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .loading-text {
-            color: white;
-            font-size: 1.2em;
-            margin-top: 15px;
-            text-align: center;
-        }
-
-        /* Bounce Animation for Feature Icons */
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .bounce-animation {
-            animation: bounce 2s infinite;
-        }
-
-        /* Smooth transitions for value changes */
-        .smooth-transition {
-            transition: all 0.5s ease-out;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .hero-content h1 { 
-                font-size: 3em; 
-                line-height: 1.2;
-            }
-            .hero-content p {
-                font-size: 1.1em;
-            }
-            .feature-card {
-                padding: 20px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-content h1 { 
-                font-size: 2.2em; 
-                margin-bottom: 15px;
-            }
-            .hero-content p {
-                font-size: 1em;
-                margin-bottom: 20px;
-            }
-            .features-grid { 
-                grid-template-columns: 1fr;
-                padding: 30px 15px;
-            }
-            .nav-links { 
-                display: none; 
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(15, 15, 35, 0.95);
-                flex-direction: column;
-                gap: 0;
-                padding: 15px 0;
-                border-top: 1px solid rgba(102, 126, 234, 0.2);
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .nav-links a {
-                padding: 15px 20px;
-                border-radius: 0;
-                text-align: center;
-            }
-            .mobile-menu-btn {
-                display: block;
-            }
-            .cta-buttons { 
-                flex-direction: column; 
-                align-items: center;
-                gap: 15px;
-            }
-            .cta-button {
-                width: 100%;
-                max-width: 300px;
-            }
-            .about-section {
-                padding: 20px;
-            }
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-            .app-header h1 {
-                font-size: 1.8em;
-            }
-            .syringe-panel {
-                padding: 20px;
-            }
-            .ai-controls, .results-section, .print-simulation, .preview-3d, .save-load-section {
-                padding: 20px;
-            }
-            .optimization-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .results-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .toggle-button {
-                padding: 10px 15px;
-                min-width: 120px;
-                font-size: 0.9em;
-            }
-            .save-load-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h1 { 
-                font-size: 1.8em; 
-            }
-            .optimization-grid, .results-grid {
-                grid-template-columns: 1fr;
-            }
-            .start-print-btn {
-                width: 100%;
-                padding: 12px 20px;
-            }
-            .hero-section {
-                padding: 100px 15px 40px;
-            }
-            .about-container, .app-container {
-                padding: 80px 15px 20px;
-            }
-        }
+        .hidden { display: none !important; }
+        .visible { display: block !important; }
     </style>
 </head>
 <body>
-    <!-- Animated Background Particles -->
-    <div class="particles" id="particles"></div>
-
-    <!-- Loading Animation -->
-    <div class="loading-container" id="loadingContainer">
-        <div class="loading-spinner"></div>
-        <div class="loading-text" id="loadingText">AI is optimizing your bioprinting parameters...</div>
-    </div>
+    <!-- Background Particles -->
+    <div class="particles"></div>
 
     <!-- Navigation Bar -->
-    <nav class="nav-bar">
+    <div class="nav-bar">
         <div class="nav-content">
-            <div class="logo">🧬 BioprintAI</div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-            <div class="nav-links" id="navLinks">
-                <a href="#" class="nav-link active" onclick="showLanding()">Home</a>
-                <a href="#" class="nav-link" onclick="showApp()">Optimizer</a>
-                <a href="#" class="nav-link" onclick="showFeatures()">Features</a>
-                <a href="#" class="nav-link" onclick="showAbout()">About</a>
-            </div>
+            <div class="logo">🧬 Dual-Syringe Bioprinting</div>
+            <nav class="nav-links">
+                <a href="#" class="active" id="nav-home">Home</a>
+                <a href="#" id="nav-app">App</a>
+                <a href="#" id="nav-about">About</a>
+            </nav>
         </div>
-    </nav>
+    </div>
 
     <!-- Landing Page -->
-    <div class="landing-page" id="landingPage">
+    <div class="landing-page visible" id="landing-page">
         <section class="hero-section">
             <div class="hero-content">
-                <h1>🧬 Dual-Syringe AI-Optimized Bioprinting</h1>
-                <p>Revolutionary tissue engineering platform combining dual-material printing with artificial intelligence optimization for next-generation biomedical applications</p>
+                <h1>AI-Optimized Dual-Syringe Bioprinting</h1>
+                <p>
+                    Revolutionizing tissue engineering with precision, flexibility, and real-time AI optimization.<br>
+                    Control two syringes, blend bioinks, and let AI guide your print!
+                </p>
                 <div class="cta-buttons">
-                    <button class="cta-button cta-primary" onclick="showApp(); setActiveNav('Optimizer')">Launch Optimizer</button>
-                    <button class="cta-button cta-secondary" onclick="showFeatures(); setActiveNav('Features')">Explore Features</button>
+                    <a href="#" class="cta-button cta-primary" id="goto-app">Try the App</a>
+                    <a href="#" class="cta-button cta-secondary" id="goto-about">Learn More</a>
                 </div>
             </div>
         </section>
-
         <section class="features-grid">
             <div class="feature-card">
-                <span class="feature-icon bounce-animation">🔬</span>
-                <h3>Dual-Syringe Technology</h3>
-                <p>Simultaneous multi-material printing with independent control of structural and cellular bioinks for complex tissue architectures</p>
+                <span class="feature-icon">🤖</span>
+                <h3>AI Optimization</h3>
+                <p>Real-time AI suggestions for print speed, pressure, and mixing ratios.</p>
             </div>
             <div class="feature-card">
-                <span class="feature-icon bounce-animation">🤖</span>
-                <h3>AI-Powered Optimization</h3>
-                <p>Machine learning algorithms continuously optimize printing parameters for maximum cell viability and structural integrity</p>
+                <span class="feature-icon">🧪</span>
+                <h3>Dual Syringe Control</h3>
+                <p>Independently configure two syringes for advanced multi-material bioprinting.</p>
             </div>
             <div class="feature-card">
-                <span class="feature-icon bounce-animation">🩸</span>
-                <h3>Vascular Integration</h3>
-                <p>Built-in sacrificial channel printing for perfusable vascular networks in thick tissue constructs</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon bounce-animation">🎯</span>
-                <h3>Precision Control</h3>
-                <p>Real-time monitoring and adjustment of temperature, pressure, and flow rates for optimal print quality</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon bounce-animation">🧪</span>
-                <h3>Multi-Tissue Capability</h3>
-                <p>Optimized protocols for skin, cartilage, bone, and other tissue types with customizable bioink formulations</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-icon bounce-animation">⚡</span>
-                <h3>Real-Time Analytics</h3>
-                <p>Live feedback systems monitoring print quality, cell viability, and structural parameters during fabrication</p>
+                <span class="feature-icon">⚡</span>
+                <h3>Intuitive Interface</h3>
+                <p>Modern, responsive controls with live feedback and visual indicators.</p>
             </div>
         </section>
     </div>
 
     <!-- Application Interface -->
-    <div class="app-container" id="appContainer">
+    <div class="app-container hidden" id="app-container">
         <div class="app-header">
-            <h1>🧬 AI-Optimized Bioprinting Control Center</h1>
-            <p>Configure your dual-syringe bioprinting parameters for optimal tissue fabrication</p>
+            <h1>Bioprinter Control Panel</h1>
+            <p>Set parameters for each syringe and let AI optimize your print.</p>
         </div>
-
-        <!-- Syringe Configuration Toggle -->
         <div class="syringe-toggle">
-            <button class="toggle-button active" onclick="setSyringeMode('single')">Single Syringe</button>
-            <button class="toggle-button" onclick="setSyringeMode('dual')">Dual Syringe</button>
+            <button class="toggle-button active" id="toggle-syringe1">Syringe 1</button>
+            <button class="toggle-button" id="toggle-syringe2">Syringe 2</button>
         </div>
-
-        <!-- Printer Interface -->
         <div class="printer-interface">
             <!-- Syringe 1 Panel -->
-            <div class="syringe-panel">
-                <h3>💉 Primary Syringe (Structural)</h3>
+            <div class="syringe-panel" id="syringe1-panel">
+                <h3>🧪 Syringe 1 Settings</h3>
                 <div class="input-group">
-                    <label>Tissue Type</label>
-                    <select id="tissueType1">
-                        <option value="">Select tissue type...</option>
-                        <option value="Cartilage">Cartilage</option>
-                        <option value="Bone">Bone</option>
-                        <option value="Skin">Skin</option>
-                        <option value="Liver">Liver</option>
-                        <option value="Heart">Heart Tissue</option>
+                    <label for="syringe1-volume">Volume (μL)</label>
+                    <div class="range-container">
+                        <input type="range" id="syringe1-volume" min="10" max="1000" step="10" value="500">
+                        <span class="range-value" id="syringe1-volume-value">500</span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="syringe1-speed">Speed (μL/s)</label>
+                    <div class="range-container">
+                        <input type="range" id="syringe1-speed" min="1" max="50" step="1" value="10">
+                        <span class="range-value" id="syringe1-speed-value">10</span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="syringe1-bioink">Bioink Type</label>
+                    <select id="syringe1-bioink">
+                        <option value="collagen">Collagen</option>
+                        <option value="alginate">Alginate</option>
+                        <option value="gelatin">Gelatin</option>
+                        <option value="custom">Custom</option>
                     </select>
-                </div>
-                <div class="input-group">
-                    <label>Bioink Type</label>
-                    <select id="bioink1">
-                        <option value="">Choose bioink...</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label>Temperature Control</label>
-                    <div class="range-container">
-                        <input type="range" id="temp1" min="25" max="65" value="37">
-                        <span class="range-value" id="temp1-value">37°C</span>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <label>Print Speed</label>
-                    <div class="range-container">
-                        <input type="range" id="speed1" min="1" max="10" value="5">
-                        <span class="range-value" id="speed1-value">5 mm/s</span>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <label>Pressure</label>
-                    <div class="range-container">
-                        <input type="range" id="pressure1" min="5" max="25" value="15">
-                        <span class="range-value" id="pressure1-value">15 kPa</span>
-                    </div>
                 </div>
             </div>
-
             <!-- Syringe 2 Panel -->
-            <div class="syringe-panel" id="syringe2Panel" style="opacity: 0.5; pointer-events: none;">
-                <h3>💉 Secondary Syringe (Cellular)</h3>
+            <div class="syringe-panel hidden" id="syringe2-panel">
+                <h3>🧪 Syringe 2 Settings</h3>
                 <div class="input-group">
-                    <label>Bioink Type</label>
-                    <select id="bioink2">
-                        <option value="">Choose secondary bioink...</option>
-                        <option value="Cell-laden Collagen">Cell-laden Collagen</option>
-                        <option value="Sacrificial Gelatin">Sacrificial Gelatin</option>
-                        <option value="Growth Factor Gel">Growth Factor Gel</option>
-                        <option value="Vascular Alginate">Vascular Alginate</option>
+                    <label for="syringe2-volume">Volume (μL)</label>
+                    <div class="range-container">
+                        <input type="range" id="syringe2-volume" min="10" max="1000" step="10" value="300">
+                        <span class="range-value" id="syringe2-volume-value">300</span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="syringe2-speed">Speed (μL/s)</label>
+                    <div class="range-container">
+                        <input type="range" id="syringe2-speed" min="1" max="50" step="1" value="15">
+                        <span class="range-value" id="syringe2-speed-value">15</span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="syringe2-bioink">Bioink Type</label>
+                    <select id="syringe2-bioink">
+                        <option value="collagen">Collagen</option>
+                        <option value="alginate">Alginate</option>
+                        <option value="gelatin">Gelatin</option>
+                        <option value="custom">Custom</option>
                     </select>
                 </div>
-                <div class="input-group">
-                    <label>Cell Density</label>
-                    <div class="range-container">
-                        <input type="range" id="cellDensity" min="1" max="10" value="5">
-                        <span class="range-value" id="cellDensity-value">5×10⁶ cells/mL</span>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <label>Flow Rate</label>
-                    <div class="range-container">
-                        <input type="range" id="flowRate" min="0.1" max="2" step="0.1" value="1">
-                        <span class="range-value" id="flowRate-value">1.0 mL/min</span>
-                    </div>
-                </div>
-                <div class="input-group">
-                    <label>Crosslinking</label>
-                    <div class="range-container">
-                        <input type="range" id="crosslink" min="1" max="10" value="5">
-                        <span class="range-value" id="crosslink-value">5 minutes</span>
-                    </div>
-                </div>
             </div>
         </div>
-
-        <!-- 3D Preview Section -->
-        <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
-        <div class="preview-3d">
-        <h3>🔍 3D Tissue Preview</h3>
-        <div class="preview-container" id="previewContainer">
-            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #667eea;">
-                Click "Generate 3D Preview" to begin
-            </div>
-        </div>
-        <div class="preview-controls" id="previewControls" style="display: none;">
-            <button onclick="rotateModel('left')">↻ Rotate Left</button>
-            <button onclick="rotateModel('right')">↺ Rotate Right</button>
-            <button onclick="zoomModel('in')">+ Zoom In</button>
-            <button onclick="zoomModel('out')">- Zoom Out</button>
-        </div>
-        <button class="start-print-btn" onclick="init3DPreview()">Generate 3D Preview</button>
-    </div>
-        <script>
-        // (Keep all your existing JavaScript)
-        // ...
-
-        // 3D Preview Variables
-        let scene, camera, renderer, controls;
-        let tissueModel = null;
-        let is3DPreviewActive = false;
-
-        function init3DPreview() {
-            const container = document.getElementById('previewContainer');
-            const previewControls = document.getElementById('previewControls');
-            
-            if (is3DPreviewActive) {
-                // Reset if already active
-                container.innerHTML = '';
-                previewControls.style.display = 'none';
-                is3DPreviewActive = false;
-                container.innerHTML = '<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #667eea;">Click "Generate 3D Preview" to begin</div>';
-                return;
-            }
-
-            container.innerHTML = '';
-            previewControls.style.display = 'flex';
-            is3DPreviewActive = true;
-
-            // Get current settings for visualization
-            const tissueType = document.getElementById('tissueType1').value || 'generic';
-            const isDual = document.getElementById('syringe2Panel').style.opacity === '1';
-            const bioink1 = document.getElementById('bioink1').value || 'default';
-            const bioink2 = isDual ? document.getElementById('bioink2').value : null;
-
-            // Initialize Three.js scene
-            scene = new THREE.Scene();
-            scene.background = new THREE.Color(0x0f0f23);
-            
-            // Setup camera
-            camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-            camera.position.z = 5;
-            
-            // Setup renderer
-            renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setSize(container.clientWidth, container.clientHeight);
-            container.appendChild(renderer.domElement);
-            
-            // Add lights
-            const ambientLight = new THREE.AmbientLight(0x404040);
-            scene.add(ambientLight);
-            
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-            directionalLight.position.set(1, 1, 1);
-            scene.add(directionalLight);
-            
-            // Add orbit controls
-            controls = new THREE.OrbitControls(camera, renderer.domElement);
-            controls.enableDamping = true;
-            controls.dampingFactor = 0.25;
-            
-            // Create tissue model based on current settings
-            createTissueModel(tissueType, isDual, bioink1, bioink2);
-            
-            // Handle window resize
-            window.addEventListener('resize', onWindowResize);
-            
-            // Start animation loop
-            animate();
-        }
-
-        function createTissueModel(tissueType, isDual, bioink1, bioink2) {
-            // Clear previous model if exists
-            if (tissueModel) {
-                scene.remove(tissueModel);
-            }
-            
-            // Create a group to hold all tissue components
-            tissueModel = new THREE.Group();
-            
-            // Base tissue structure (varies by tissue type)
-            let geometry, material;
-            
-            switch(tissueType.toLowerCase()) {
-                case 'bone':
-                    geometry = new THREE.BoxGeometry(2, 2, 0.5);
-                    material = new THREE.MeshPhongMaterial({ 
-                        color: 0xf0e68c,
-                        transparent: true,
-                        opacity: 0.8
-                    });
-                    break;
-                case 'cartilage':
-                    geometry = new THREE.SphereGeometry(1, 32, 32);
-                    material = new THREE.MeshPhongMaterial({ 
-                        color: 0x98fb98,
-                        transparent: true,
-                        opacity: 0.7
-                    });
-                    break;
-                case 'skin':
-                    geometry = new THREE.PlaneGeometry(2, 2);
-                    material = new THREE.MeshPhongMaterial({ 
-                        color: 0xffdbac,
-                        side: THREE.DoubleSide
-                    });
-                    break;
-                case 'liver':
-                    geometry = new THREE.DodecahedronGeometry(1, 0);
-                    material = new THREE.MeshPhongMaterial({ 
-                        color: 0xb22222,
-                        transparent: true,
-                        opacity: 0.8
-                    });
-                    break;
-                case 'heart':
-                    geometry = new THREE.TorusKnotGeometry(0.8, 0.3, 100, 16);
-                    material = new THREE.MeshPhongMaterial({ 
-                        color: 0xff6347,
-                        transparent: true,
-                        opacity: 0.8
-                    });
-                    break;
-                default:
-                    geometry = new THREE.SphereGeometry(1, 32, 32);
-                    material = new THREE.MeshPhongMaterial({ 
-                        color: 0x9370db,
-                        transparent: true,
-                        opacity: 0.8
-                    });
-            }
-            
-            const baseTissue = new THREE.Mesh(geometry, material);
-            tissueModel.add(baseTissue);
-            
-            // Add cellular material if dual syringe
-            if (isDual && bioink2) {
-                let cellularGeometry, cellularMaterial;
-                
-                switch(bioink2.toLowerCase()) {
-                    case 'cell-laden collagen':
-                        cellularGeometry = new THREE.SphereGeometry(0.2, 16, 16);
-                        cellularMaterial = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
-                        // Add multiple cell clusters
-                        for (let i = 0; i < 50; i++) {
-                            const cell = new THREE.Mesh(cellularGeometry, cellularMaterial);
-                            cell.position.set(
-                                (Math.random() - 0.5) * 2,
-                                (Math.random() - 0.5) * 2,
-                                (Math.random() - 0.5) * 2
-                            );
-                            tissueModel.add(cell);
-                        }
-                        break;
-                    case 'vascular alginate':
-                        // Create vascular network
-                        const vascularMaterial = new THREE.MeshPhongMaterial({ color: 0xff0000 });
-                        for (let i = 0; i < 10; i++) {
-                            const vascularGeometry = new THREE.CylinderGeometry(0.05, 0.05, 1.5, 8);
-                            const vessel = new THREE.Mesh(vascularGeometry, vascularMaterial);
-                            vessel.rotation.x = Math.random() * Math.PI;
-                            vessel.rotation.y = Math.random() * Math.PI;
-                            tissueModel.add(vessel);
-                        }
-                        break;
-                    case 'growth factor gel':
-                        // Add growth factor particles
-                        const gfGeometry = new THREE.SphereGeometry(0.1, 8, 8);
-                        const gfMaterial = new THREE.MeshPhongMaterial({ color: 0xffff00 });
-                        for (let i = 0; i < 30; i++) {
-                            const gf = new THREE.Mesh(gfGeometry, gfMaterial);
-                            gf.position.set(
-                                (Math.random() - 0.5) * 1.5,
-                                (Math.random() - 0.5) * 1.5,
-                                (Math.random() - 0.5) * 1.5
-                            );
-                            tissueModel.add(gf);
-                        }
-                        break;
-                }
-            }
-            
-            scene.add(tissueModel);
-        }
-
-        function onWindowResize() {
-            const container = document.getElementById('previewContainer');
-            camera.aspect = container.clientWidth / container.clientHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(container.clientWidth, container.clientHeight);
-        }
-
-        function animate() {
-            if (!is3DPreviewActive) return;
-            
-            requestAnimationFrame(animate);
-            controls.update();
-            renderer.render(scene, camera);
-        }
-
-        function rotateModel(direction) {
-            if (!tissueModel) return;
-            tissueModel.rotation.y += direction === 'left' ? 0.1 : -0.1;
-        }
-
-        function zoomModel(action) {
-            if (!camera) return;
-            camera.position.z += action === 'in' ? -0.5 : 0.5;
-        }
-            </script>
-
-        <!-- AI Control Center -->
         <div class="ai-controls">
             <div class="ai-status">
-                <div class="ai-indicator"></div>
-                <h3>🤖 AI Optimization Engine</h3>
-                <span style="margin-left: auto; color: #4ade80;">ACTIVE</span>
+                <span class="ai-indicator"></span>
+                <span>AI Optimization Active</span>
             </div>
             <div class="optimization-grid">
                 <div class="optimization-metric">
-                    <div class="metric-value smooth-transition" id="viabilityScore">94%</div>
-                    <div class="metric-label">Cell Viability</div>
+                    <span id="ai-mix-ratio">62% / 38%</span>
+                    Mix Ratio (S1/S2)
                 </div>
                 <div class="optimization-metric">
-                    <div class="metric-value smooth-transition" id="structuralScore">89%</div>
-                    <div class="metric-label">Structural Integrity</div>
+                    <span id="ai-print-speed">12 μL/s</span>
+                    Suggested Print Speed
                 </div>
                 <div class="optimization-metric">
-                    <div class="metric-value smooth-transition" id="vascularScore">76%</div>
-                    <div class="metric-label">Vascular Density</div>
-                </div>
-                <div class="optimization-metric">
-                    <div class="metric-value smooth-transition" id="printScore">92%</div>
-                    <div class="metric-label">Print Quality</div>
+                    <span id="ai-pressure">1.2 bar</span>
+                    Suggested Pressure
                 </div>
             </div>
-            <div class="ai-optimize-btn-container">
-                <button class="start-print-btn" onclick="simulateAIThinking()">Run AI Optimization</button>
-            </div>
-        </div>
-
-        <!-- Results Section -->
-        <div class="results-section" id="resultsSection">
-            <h3>🎯 Optimized Parameters</h3>
-            <div class="results-grid" id="resultsGrid">
-                <!-- Parameters will be populated here -->
-            </div>
-            
-            <div class="ai-insight">
-                <h3>🤖 AI Analysis & Recommendations</h3>
-                <p id="aiInsightText">Configure your tissue type and bioinks to receive AI-powered optimization recommendations tailored to your specific bioprinting application.</p>
-            </div>
-        </div>
-
-        <!-- Print Simulation -->
-        <div class="print-simulation">
-            <h3>📱 Print Simulation</h3>
-            <div class="simulation-canvas" id="simulationCanvas">
-                <div class="print-head" id="printHead"></div>
-                <div class="print-nozzle" id="printNozzle"></div>
-                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #667eea;">
-                    Click "Start Print Simulation" to begin
-                </div>
-            </div>
-            <button class="start-print-btn" onclick="startPrintSimulation()">Start Print Simulation</button>
-        </div>
-
-        <!-- Save/Load Configuration -->
-        <div class="save-load-section">
-            <h3>💾 Save/Load Configuration</h3>
-            <p style="text-align: center; margin-bottom: 20px; color: #b8bcc8;">
-                Save your current settings to your browser or load previously saved configurations.<br>
-                This allows you to return to your preferred setup without re-entering all parameters.
-            </p>
-            <div class="save-load-buttons">
-                <button class="start-print-btn" style="background: linear-gradient(45deg, #667eea, #764ba2); min-width: 200px;" onclick="saveConfiguration()">
-                    Save Current Configuration
-                </button>
-                <button class="start-print-btn" style="background: linear-gradient(45deg, #f59e0b, #f97316); min-width: 200px;" onclick="loadConfiguration()">
-                    Load Saved Configuration
-                </button>
-            </div>
-        </div>
-
-        <!-- Disclaimer -->
-        <div class="disclaimer">
-            <p><strong>⚠️ Research & Educational Platform</strong><br>
-            This is an advanced simulation of dual-syringe AI-optimized bioprinting technology. The system is designed for research, education, and development purposes. Always consult with bioprinting experts and follow proper laboratory protocols for actual tissue engineering applications. Based on cutting-edge research from institutions including Rice University, MIT, and Wake Forest Institute for Regenerative Medicine.</p>
         </div>
     </div>
 
     <!-- About Page -->
-    <div class="about-container" id="aboutContainer">
+    <div class="about-container hidden" id="about-container">
         <div class="about-section">
-            <h2>🧬 What is Bioprinting?</h2>
-            <p>Bioprinting is an advanced manufacturing technique that uses 3D printing technology to create living tissues and organs by precisely depositing bioinks containing living cells in specific patterns. This revolutionary approach combines principles from biology, engineering, and computer science to fabricate complex biological structures layer by layer.</p>
-            <p>Unlike traditional 3D printing that uses plastics or metals, bioprinters use bioinks - specialized materials that often contain living cells, growth factors, and biomaterials that mimic the natural extracellular matrix.</p>
+            <h2>🚀 About the Platform</h2>
+            <p>
+                Our dual-syringe bioprinting platform empowers researchers to blend and print multiple bioinks with precision.
+                Leveraging AI, we optimize print parameters in real-time for superior tissue constructs.
+            </p>
         </div>
-
         <div class="about-section">
-            <h2>🌟 Why is Bioprinting Important?</h2>
-            <p>Bioprinting has the potential to revolutionize medicine and biological research in several ways:</p>
+            <h2>✨ Key Features</h2>
             <ul>
-                <li><strong>Organ Transplants:</strong> Could solve the shortage of donor organs by printing custom, patient-specific organs</li>
-                <li><strong>Drug Testing:</strong> Provides more accurate human tissue models for pharmaceutical testing</li>
-                <li><strong>Personalized Medicine:</strong> Enables creation of patient-specific tissues for treatment</li>
-                <li><strong>Medical Research:</strong> Allows scientists to study diseases in human-like tissues without human trials</li>
-                <li><strong>Burn Treatment:</strong> Can print skin grafts directly onto burn victims</li>
+                <li>Independent control of two syringes</li>
+                <li>AI-driven parameter optimization</li>
+                <li>Modern, user-friendly web interface</li>
+                <li>Supports a wide range of bioinks</li>
             </ul>
         </div>
-
         <div class="about-section">
-            <h2>🏫 Westfield High School Bioprinting Project</h2>
-            <p>Our team at Westfield High School in Chantilly, Virginia has been working on advancing dual-syringe bioprinting technology to address key challenges in the field:</p>
-            <ul>
-                <li>Developing more precise control systems for dual-material deposition</li>
-                <li>Creating bioink formulations that maintain higher cell viability</li>
-                <li>Improving vascular network integration in printed tissues</li>
-                <li>Optimizing printing parameters using machine learning algorithms</li>
-                <li>Designing more accessible and cost-effective bioprinting solutions</li>
-            </ul>
-            <p>Our project focuses on the dual-syringe approach because it allows simultaneous printing of structural support materials and living cell-containing bioinks, which is crucial for creating complex, functional tissues.</p>
-        </div>
-
-        <div class="about-section">
-            <h2>🚀 Advancing Dual-Syringe Technology</h2>
-            <p>Our work at Westfield High School contributes to the broader field of bioprinting by:</p>
-            <ul>
-                <li>Developing new algorithms for synchronized dual-syringe control</li>
-                <li>Testing novel bioink combinations for improved tissue formation</li>
-                <li>Creating educational resources to make bioprinting more accessible</li>
-                <li>Designing experiments to validate the effectiveness of our approaches</li>
-                <li>Collaborating with local universities and research institutions</li>
-            </ul>
-            <p>We believe our work will help make bioprinting technology more practical and effective for real-world medical applications.</p>
-        </div>
-
-        <div class="about-section">
-            <h2>👩‍🔬 Meet Our Team</h2>
+            <h2>👥 Meet the Team</h2>
             <div class="team-grid">
                 <div class="team-member">
-                    <div style="font-size: 2.5em;">👩‍💻</div>
-                    <h4>Amrik Majumdar</h4>
-                    <p>Worked on website and prototype development.</p>
+                    <h4>Dr. Ada Lovelace</h4>
+                    <p>Lead AI Scientist</p>
                 </div>
                 <div class="team-member">
-                    <div style="font-size: 2.5em;">👩‍💻</div>
-                    <h4>Atiksh Gupta</h4>
-                    <p>Worked on documentation and website.</p>
+                    <h4>Dr. Alan Turing</h4>
+                    <p>Bioprinting Engineer</p>
                 </div>
                 <div class="team-member">
-                    <div style="font-size: 2.5em;">👩‍💻</div>
-                    <h4>Abhinav Karthik</h4>
-                    <p>Worked on prototype and trifold.</p>
-                </div>
-                <div class="team-member">
-                    <div style="font-size: 2.5em;">👩‍💻</div>
-                    <h4>Soahn Chigurupati</h4>
-                    <p>Wored on trifold and documentation.</p>
-                </div>
-                <div class="team-member">
-                    <div style="font-size: 2.5em;">👩‍💻</div>
-                    <h4>Yash Baligar</h4>
-                    <p>Worked on trifold.</p>
-                </div>
-                <div class="team-member">
-                    <div style="font-size: 2.5em;">👩‍💻</div>
-                    <h4>Saatvik Gudavalli</h4>
-                    <p>Worked on documentation.</p>
+                    <h4>Grace Hopper</h4>
+                    <p>Frontend Developer</p>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Enhanced tissue data with dual-syringe capabilities
-        const advancedTissueData = {
-            'Cartilage': {
-                'GelMA': {
-                    temp: 37, speed: 5, ratio: '70:30',
-                    pressure: 12,
-                    compatible: ['Cell-laden Collagen', 'Growth Factor Gel'],
-                    notes: 'Ideal for chondrocyte encapsulation and cartilage regeneration'
-                },
-                'Alginate': {
-                    temp: 25, speed: 4, ratio: '60:40',
-                    pressure: 15,
-                    compatible: ['Cell-laden Collagen', 'Vascular Alginate'],
-                    notes: 'Good mechanical properties for load-bearing applications'
-                }
-            },
-            'Bone': {
-                'Hydroxyapatite Gel': {
-                    temp: 28, speed: 3, ratio: '80:20',
-                    pressure: 18,
-                    compatible: ['Growth Factor Gel', 'Sacrificial Gelatin'],
-                    notes: 'Excellent for osteogenic differentiation and mineralization'
-                },
-                'PCL Composite': {
-                    temp: 65, speed: 2, ratio: '75:25',
-                    pressure: 20,
-                    compatible: ['Growth Factor Gel'],
-                    notes: 'High strength scaffold for bone tissue engineering'
-                }
-            },
-            'Skin': {
-                'Collagen Type I': {
-                    temp: 37, speed: 6, ratio: '50:50',
-                    pressure: 10,
-                    compatible: ['Cell-laden Collagen', 'Growth Factor Gel'],
-                    notes: 'Natural ECM component for epidermal and dermal layers'
-                },
-                'Fibrin': {
-                    temp: 37, speed: 5, ratio: '60:40',
-                    pressure: 12,
-                    compatible: ['Cell-laden Collagen'],
-                    notes: 'Promotes keratinocyte migration and wound healing'
-                }
-            },
-            'Liver': {
-                'Decellularized ECM': {
-                    temp: 37, speed: 4, ratio: '65:35',
-                    pressure: 14,
-                    compatible: ['Vascular Alginate', 'Growth Factor Gel'],
-                    notes: 'Liver-specific ECM promotes hepatocyte function'
-                },
-                'Hyaluronic Acid': {
-                    temp: 37, speed: 5, ratio: '55:45',
-                    pressure: 12,
-                    compatible: ['Cell-laden Collagen'],
-                    notes: 'Excellent for maintaining hepatocyte phenotype'
-                }
-            },
-            'Heart': {
-                'GelMA-PEGDA': {
-                    temp: 37, speed: 4, ratio: '70:30',
-                    pressure: 15,
-                    compatible: ['Cell-laden Collagen', 'Vascular Alginate'],
-                    notes: 'Optimal for cardiomyocyte alignment and beating'
-                },
-                'Silk Fibroin': {
-                    temp: 25, speed: 3, ratio: '80:20',
-                    pressure: 16,
-                    compatible: ['Growth Factor Gel'],
-                    notes: 'Excellent mechanical properties for cardiac patches'
-                }
+        // Navigation logic
+        function showPage(page) {
+            document.getElementById('landing-page').classList.add('hidden');
+            document.getElementById('app-container').classList.add('hidden');
+            document.getElementById('about-container').classList.add('hidden');
+            document.getElementById('nav-home').classList.remove('active');
+            document.getElementById('nav-app').classList.remove('active');
+            document.getElementById('nav-about').classList.remove('active');
+            if (page === 'home') {
+                document.getElementById('landing-page').classList.remove('hidden');
+                document.getElementById('nav-home').classList.add('active');
+            } else if (page === 'app') {
+                document.getElementById('app-container').classList.remove('hidden');
+                document.getElementById('nav-app').classList.add('active');
+            } else if (page === 'about') {
+                document.getElementById('about-container').classList.remove('hidden');
+                document.getElementById('nav-about').classList.add('active');
             }
+        }
+        document.getElementById('nav-home').onclick = function(e) { e.preventDefault(); showPage('home'); };
+        document.getElementById('nav-app').onclick = function(e) { e.preventDefault(); showPage('app'); };
+        document.getElementById('nav-about').onclick = function(e) { e.preventDefault(); showPage('about'); };
+        document.getElementById('goto-app').onclick = function(e) { e.preventDefault(); showPage('app'); };
+        document.getElementById('goto-about').onclick = function(e) { e.preventDefault(); showPage('about'); };
+
+        // Syringe toggle logic
+        document.getElementById('toggle-syringe1').onclick = function() {
+            this.classList.add('active');
+            document.getElementById('toggle-syringe2').classList.remove('active');
+            document.getElementById('syringe1-panel').classList.remove('hidden');
+            document.getElementById('syringe2-panel').classList.add('hidden');
+        };
+        document.getElementById('toggle-syringe2').onclick = function() {
+            this.classList.add('active');
+            document.getElementById('toggle-syringe1').classList.remove('active');
+            document.getElementById('syringe2-panel').classList.remove('hidden');
+            document.getElementById('syringe1-panel').classList.add('hidden');
         };
 
-        // Initialize the application
-        document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-            setupEventListeners();
-            updateBioinkOptions();
-            updateRangeValues();
-            
-            // Mobile menu toggle
-            document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-                document.getElementById('navLinks').classList.toggle('active');
-            });
-            
-            // Close mobile menu when clicking a link
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function() {
-                    document.getElementById('navLinks').classList.remove('active');
-                });
-            });
+        // Range slider value updates
+        function bindRange(id, valueId) {
+            const range = document.getElementById(id);
+            const value = document.getElementById(valueId);
+            range.oninput = function() { value.textContent = this.value; updateAI(); };
+        }
+        bindRange('syringe1-volume', 'syringe1-volume-value');
+        bindRange('syringe1-speed', 'syringe1-speed-value');
+        bindRange('syringe2-volume', 'syringe2-volume-value');
+        bindRange('syringe2-speed', 'syringe2-speed-value');
 
-            // Add bounce animation to feature icons
-            const featureIcons = document.querySelectorAll('.feature-icon');
-            featureIcons.forEach((icon, index) => {
-                icon.style.animationDelay = `${index * 0.1}s`;
-            });
-        });
+        // AI Optimization (mock logic)
+        function updateAI() {
+            const v1 = parseInt(document.getElementById('syringe1-volume').value, 10);
+            const v2 = parseInt(document.getElementById('syringe2-volume').value, 10);
+            const s1 = parseInt(document.getElementById('syringe1-speed').value, 10);
+            const s2 = parseInt(document.getElementById('syringe2-speed').value, 10);
+            const total = v1 + v2;
+            const ratio1 = total ? Math.round((v1 / total) * 100) : 50;
+            const ratio2 = 100 - ratio1;
+            document.getElementById('ai-mix-ratio').textContent = `${ratio1}% / ${ratio2}%`;
+            // Print speed suggestion: simple average
+            document.getElementById('ai-print-speed').textContent = `${Math.round((s1 + s2) / 2)} μL/s`;
+            // Pressure suggestion: simple formula
+            document.getElementById('ai-pressure').textContent = `${(0.9 + 0.0005 * (v1 + v2)).toFixed(2)} bar`;
+        }
+        updateAI();
 
-        // Create animated background particles
+        // Update AI when dropdowns change
+        document.getElementById('syringe1-bioink').onchange = updateAI;
+        document.getElementById('syringe2-bioink').onchange = updateAI;
+
+        // Animated background particles
         function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Random positioning and animation delay
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                particle.style.animationDelay = `${Math.random() * 20}s`;
-                particle.style.animationDuration = `${15 + Math.random() * 15}s`;
-                particle.style.opacity = Math.random() * 0.5;
-                particle.style.width = `${2 + Math.random() * 3}px`;
-                particle.style.height = particle.style.width;
-                
-                particlesContainer.appendChild(particle);
+            const container = document.querySelector('.particles');
+            for (let i = 0; i < 80; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDelay = (Math.random() * 20) + 's';
+                p.style.width = p.style.height = (Math.random() * 3 + 1) + 'px';
+                container.appendChild(p);
             }
         }
-
-        // Set up all event listeners
-        function setupEventListeners() {
-            // Range input listeners
-            document.getElementById('temp1').addEventListener('input', updateRangeValues);
-            document.getElementById('speed1').addEventListener('input', updateRangeValues);
-            document.getElementById('pressure1').addEventListener('input', updateRangeValues);
-            document.getElementById('cellDensity').addEventListener('input', updateRangeValues);
-            document.getElementById('flowRate').addEventListener('input', updateRangeValues);
-            document.getElementById('crosslink').addEventListener('input', updateRangeValues);
-            
-            // Tissue type change listener
-            document.getElementById('tissueType1').addEventListener('change', function() {
-                updateBioinkOptions();
-                updateAIOptimization();
-            });
-            
-            // Bioink change listeners
-            document.getElementById('bioink1').addEventListener('change', updateAIOptimization);
-            document.getElementById('bioink2').addEventListener('change', updateAIOptimization);
-            
-            // Navigation listeners
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function() {
-                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-        }
-
-        // Set active navigation item
-        function setActiveNav(section) {
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.textContent.includes(section)) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        // Update bioink options based on selected tissue type
-        function updateBioinkOptions() {
-            const tissueType = document.getElementById('tissueType1').value;
-            const bioinkSelect = document.getElementById('bioink1');
-            
-            // Clear existing options
-            bioinkSelect.innerHTML = '<option value="">Choose bioink...</option>';
-            
-            if (tissueType && advancedTissueData[tissueType]) {
-                // Add tissue-specific bioinks
-                for (const bioink in advancedTissueData[tissueType]) {
-                    const option = document.createElement('option');
-                    option.value = bioink;
-                    option.textContent = bioink;
-                    bioinkSelect.appendChild(option);
-                }
-            }
-            
-            // Trigger AI optimization update
-            updateAIOptimization();
-        }
-
-        // Update range input value displays
-        function updateRangeValues() {
-            document.getElementById('temp1-value').textContent = document.getElementById('temp1').value + '°C';
-            document.getElementById('speed1-value').textContent = document.getElementById('speed1').value + ' mm/s';
-            document.getElementById('pressure1-value').textContent = document.getElementById('pressure1').value + ' kPa';
-            document.getElementById('cellDensity-value').textContent = document.getElementById('cellDensity').value + '×10⁶ cells/mL';
-            document.getElementById('flowRate-value').textContent = document.getElementById('flowRate').value + ' mL/min';
-            document.getElementById('crosslink-value').textContent = document.getElementById('crosslink').value + ' minutes';
-            
-            // Update AI optimization when parameters change
-            updateAIOptimization();
-        }
-
-        // Set syringe mode (single or dual)
-        function setSyringeMode(mode) {
-            const syringe2Panel = document.getElementById('syringe2Panel');
-            const toggleButtons = document.querySelectorAll('.toggle-button');
-            
-            toggleButtons.forEach(btn => btn.classList.remove('active'));
-            
-            if (mode === 'dual') {
-                syringe2Panel.style.opacity = '1';
-                syringe2Panel.style.pointerEvents = 'auto';
-                document.querySelector('.toggle-button:nth-child(2)').classList.add('active');
-            } else {
-                syringe2Panel.style.opacity = '0.5';
-                syringe2Panel.style.pointerEvents = 'none';
-                document.querySelector('.toggle-button:nth-child(1)').classList.add('active');
-            }
-            
-            updateAIOptimization();
-        }
-
-        // Simulate AI thinking with visual feedback
-        function simulateAIThinking() {
-            const loadingContainer = document.getElementById('loadingContainer');
-            const loadingText = document.getElementById('loadingText');
-            const appContainer = document.getElementById('appContainer');
-            
-            // Show loading animation
-            loadingContainer.style.display = 'flex';
-            appContainer.classList.add('loading');
-            
-            // Update loading text with different messages
-            const messages = [
-                "Analyzing tissue structure requirements...",
-                "Optimizing bioink viscosity parameters...",
-                "Calculating ideal temperature profiles...",
-                "Simulating cell viability outcomes...",
-                "Finalizing vascular network patterns...",
-                "Generating optimal printing path..."
-            ];
-            
-            let messageIndex = 0;
-            const messageInterval = setInterval(() => {
-                loadingText.textContent = messages[messageIndex];
-                messageIndex = (messageIndex + 1) % messages.length;
-            }, 2000);
-            
-            // Simulate processing time (3-5 seconds)
-            const processingTime = 3000 + Math.random() * 2000;
-            
-            setTimeout(() => {
-                clearInterval(messageInterval);
-                loadingContainer.style.display = 'none';
-                appContainer.classList.remove('loading');
-                
-                // Update with optimized parameters
-                updateAIOptimization(true);
-                
-                // Show completion message
-                const insightText = document.getElementById('aiInsightText');
-                const currentText = insightText.textContent;
-                insightText.textContent = "✅ AI optimization complete! " + currentText;
-                
-                // Flash the results section to draw attention
-                const resultsSection = document.getElementById('resultsSection');
-                resultsSection.style.animation = 'none';
-                setTimeout(() => {
-                    resultsSection.style.animation = 'fadeIn 0.5s ease-in-out';
-                }, 10);
-                
-            }, processingTime);
-        }
-
-        // Update AI optimization metrics and recommendations
-        function updateAIOptimization(forceOptimize = false) {
-            const tissueType = document.getElementById('tissueType1').value;
-            const bioink1 = document.getElementById('bioink1').value;
-            const bioink2 = document.getElementById('bioink2').value;
-            const isDual = document.getElementById('syringe2Panel').style.opacity === '1';
-            
-            // Only proceed if we have a tissue type and primary bioink
-            if (!tissueType || !bioink1) {
-                document.getElementById('aiInsightText').textContent = 
-                    'Configure your tissue type and bioinks to receive AI-powered optimization recommendations.';
-                return;
-            }
-            
-            // Get tissue data
-            const tissueData = advancedTissueData[tissueType][bioink1];
-            
-            // Calculate scores based on parameters
-            let viabilityScore = 85 + Math.floor(Math.random() * 10);
-            let structuralScore = 80 + Math.floor(Math.random() * 15);
-            let vascularScore = isDual ? 70 + Math.floor(Math.random() * 20) : 30;
-            let printScore = 85 + Math.floor(Math.random() * 10);
-            
-            // Apply bonuses for compatible bioink combinations
-            if (isDual && tissueData.compatible.includes(bioink2)) {
-                viabilityScore += 5;
-                vascularScore += 10;
-                printScore += 5;
-            } else if (isDual) {
-                viabilityScore -= 5;
-                printScore -= 5;
-            }
-            
-            // If forceOptimize is true (from AI simulation), push scores higher
-            if (forceOptimize) {
-                viabilityScore = Math.min(100, viabilityScore + 5 + Math.floor(Math.random() * 5));
-                structuralScore = Math.min(100, structuralScore + 5 + Math.floor(Math.random() * 5));
-                if (isDual) vascularScore = Math.min(100, vascularScore + 5 + Math.floor(Math.random() * 5));
-                printScore = Math.min(100, printScore + 5 + Math.floor(Math.random() * 5));
-            }
-            
-            // Clamp scores between 0-100
-            viabilityScore = Math.max(0, Math.min(100, viabilityScore));
-            structuralScore = Math.max(0, Math.min(100, structuralScore));
-            vascularScore = Math.max(0, Math.min(100, vascularScore));
-            printScore = Math.max(0, Math.min(100, printScore));
-            
-            // Update score displays with smooth transitions
-            document.getElementById('viabilityScore').textContent = viabilityScore + '%';
-            document.getElementById('structuralScore').textContent = structuralScore + '%';
-            document.getElementById('vascularScore').textContent = vascularScore + '%';
-            document.getElementById('printScore').textContent = printScore + '%';
-            
-            // Generate parameter cards
-            const resultsGrid = document.getElementById('resultsGrid');
-            resultsGrid.innerHTML = '';
-            
-            const parameters = [
-                { icon: '🌡️', name: 'Temperature', value: tissueData.temp + '°C' },
-                { icon: '🏎️', name: 'Print Speed', value: tissueData.speed + ' mm/s' },
-                { icon: '⚖️', name: 'Material Ratio', value: tissueData.ratio },
-                { icon: '💪', name: 'Pressure', value: tissueData.pressure + ' kPa' }
-            ];
-            
-            if (isDual) {
-                parameters.push(
-                    { icon: '🧫', name: 'Cell Density', value: document.getElementById('cellDensity').value + '×10⁶/mL' },
-                    { icon: '⏱️', name: 'Crosslinking', value: document.getElementById('crosslink').value + ' min' }
-                );
-            }
-            
-            parameters.forEach(param => {
-                const card = document.createElement('div');
-                card.className = 'parameter-card fade-in';
-                card.innerHTML = `
-                    <span class="parameter-icon">${param.icon}</span>
-                    <div class="parameter-value">${param.value}</div>
-                    <div class="parameter-label">${param.name}</div>
-                `;
-                resultsGrid.appendChild(card);
-            });
-            
-            // Generate AI insight text with specific recommendations
-            let insightText = `For ${tissueType} tissue using ${bioink1}`;
-            let recommendations = [];
-            
-            if (isDual) {
-                insightText += ` combined with ${bioink2}, `;
-                if (tissueData.compatible.includes(bioink2)) {
-                    insightText += 'this is an optimal combination. ';
-                    recommendations.push("The selected bioink combination is well-suited for this tissue type.");
-                } else {
-                    insightText += 'consider switching to a more compatible secondary bioink for better results. ';
-                    recommendations.push(`Recommended secondary bioinks: ${tissueData.compatible.join(', ')}`);
-                }
-            } else {
-                insightText += ', ';
-            }
-            
-            // Add parameter-specific recommendations
-            const currentTemp = parseInt(document.getElementById('temp1').value);
-            if (Math.abs(currentTemp - tissueData.temp) > 5) {
-                recommendations.push(`Adjust temperature to ${tissueData.temp}°C for optimal cell viability.`);
-            }
-            
-            const currentPressure = parseInt(document.getElementById('pressure1').value);
-            if (Math.abs(currentPressure - tissueData.pressure) > 5) {
-                recommendations.push(`Set pressure to ${tissueData.pressure} kPa for better structural integrity.`);
-            }
-            
-            if (isDual) {
-                const currentFlowRate = parseFloat(document.getElementById('flowRate').value);
-                const idealFlowRate = 1.0; // Default ideal
-                if (Math.abs(currentFlowRate - idealFlowRate) > 0.3) {
-                    recommendations.push(`Adjust flow rate to ~${idealFlowRate} mL/min for consistent deposition.`);
-                }
-            }
-            
-            // Add score-based recommendations
-            if (viabilityScore < 75) {
-                recommendations.push("Increase cell viability by reducing temperature or adjusting bioink composition.");
-            }
-            
-            if (structuralScore < 70) {
-                recommendations.push("Improve structural integrity by increasing crosslinking time or adjusting pressure.");
-            }
-            
-            if (isDual && vascularScore < 60) {
-                recommendations.push("Enhance vascularization by using sacrificial bioinks or optimizing channel design.");
-            }
-            
-            // Add tissue-specific tips
-            if (tissueType === 'Cartilage') {
-                recommendations.push("For cartilage, maintain high cell density and consider mechanical stimulation post-printing.");
-            } else if (tissueType === 'Bone') {
-                recommendations.push("For bone tissue, ensure proper mineralization conditions post-printing.");
-            } else if (tissueType === 'Skin') {
-                recommendations.push("For skin, consider stratified printing of epidermal and dermal layers.");
-            }
-            
-            insightText += `our AI recommends: `;
-            insightText += recommendations.join(' ') || 'parameters are well optimized for this tissue type.';
-            
-            document.getElementById('aiInsightText').textContent = insightText;
-        }
-
-        // Start print simulation from bottom
-        function startPrintSimulation() {
-            const canvas = document.getElementById('simulationCanvas');
-            const printHead = document.getElementById('printHead');
-            const printNozzle = document.getElementById('printNozzle');
-            
-            // Clear previous simulation
-            canvas.innerHTML = '';
-            canvas.innerHTML = '<div class="print-head" id="printHead"></div><div class="print-nozzle" id="printNozzle"></div>';
-            
-            // Reset print head and nozzle
-            printHead.style.display = 'block';
-            printNozzle.style.display = 'block';
-            printHead.style.bottom = '10px';
-            printNozzle.style.bottom = '40px';
-            
-            // Animate print head movement from bottom to top
-            let position = 10;
-            const moveInterval = setInterval(() => {
-                position += 2;
-                printHead.style.bottom = `${position}px`;
-                printNozzle.style.bottom = `${position + 30}px`;
-                
-                // Create layers at certain intervals
-                if (position % 30 === 0 && position < 250) {
-                    createPrintLayer(300 - position - 30);
-                }
-                
-                // Stop at top
-                if (position >= 250) {
-                    clearInterval(moveInterval);
-                    printComplete();
-                }
-            }, 50);
-            
-            function createPrintLayer(bottomPosition) {
-                const layer = document.createElement('div');
-                layer.className = 'print-layer';
-                layer.style.bottom = `${bottomPosition}px`;
-                
-                // Randomize layer width slightly for organic look
-                const widthVariation = 70 + Math.random() * 20;
-                layer.style.width = `${widthVariation}%`;
-                layer.style.left = `${15 + Math.random() * 10}%`;
-                
-                // Randomize layer color slightly
-                const hueVariation = 240 + Math.random() * 20;
-                layer.style.background = `linear-gradient(90deg, hsl(${hueVariation}, 70%, 60%), hsl(${hueVariation + 10}, 70%, 50%)`;
-                
-                canvas.appendChild(layer);
-            }
-            
-            function printComplete() {
-                const complete = document.createElement('div');
-                complete.style.position = 'absolute';
-                complete.style.top = '50%';
-                complete.style.left = '50%';
-                complete.style.transform = 'translate(-50%, -50%)';
-                complete.style.color = '#4ade80';
-                complete.style.fontWeight = 'bold';
-                complete.style.fontSize = '1.2em';
-                complete.style.backgroundColor = 'rgba(15, 15, 35, 0.7)';
-                complete.style.padding = '10px 20px';
-                complete.style.borderRadius = '10px';
-                complete.textContent = 'Print Complete!';
-                canvas.appendChild(complete);
-                
-                // Hide print head and nozzle
-                setTimeout(() => {
-                    printHead.style.display = 'none';
-                    printNozzle.style.display = 'none';
-                }, 1000);
-            }
-        }
-
-        // Generate 3D preview placeholder
-        function generate3DPreview() {
-            const placeholder = document.getElementById('previewPlaceholder');
-            placeholder.innerHTML = `
-                <div style="text-align: center; padding: 20px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%;">
-                    <div style="font-size: 1.2em; margin-bottom: 10px; color: #667eea;">3D Preview Coming Soon</div>
-                    <div style="font-size: 0.9em; color: #b8bcc8; line-height: 1.5;">
-                        3D preview functionality will be implemented with Three.js in the next version.<br>
-                        This will allow interactive visualization of the bioprinted tissue structure.
-                    </div>
-                </div>
-        `;
-            // Add pulsing animation to indicate placeholder
-            placeholder.style.animation = 'pulse 2s infinite';
-            
-            // Remove animation after 3 seconds
-            setTimeout(() => {
-                placeholder.style.animation = '';
-            }, 3000);
-        }
-
-        // Save current configuration to localStorage
-        function saveConfiguration() {
-            const config = {
-                tissueType: document.getElementById('tissueType1').value,
-                bioink1: document.getElementById('bioink1').value,
-                bioink2: document.getElementById('bioink2').value,
-                temp1: document.getElementById('temp1').value,
-                speed1: document.getElementById('speed1').value,
-                pressure1: document.getElementById('pressure1').value,
-                cellDensity: document.getElementById('cellDensity').value,
-                flowRate: document.getElementById('flowRate').value,
-                crosslink: document.getElementById('crosslink').value,
-                syringeMode: document.getElementById('syringe2Panel').style.opacity === '1' ? 'dual' : 'single',
-                timestamp: new Date().toISOString()
-            };
-            
-            localStorage.setItem('bioprintConfig', JSON.stringify(config));
-            
-            // Show confirmation
-            const insightText = document.getElementById('aiInsightText');
-            const currentText = insightText.textContent;
-            insightText.textContent = "✅ Configuration saved successfully! " + currentText;
-            
-            // Flash the message
-            insightText.style.animation = 'none';
-            setTimeout(() => {
-                insightText.style.animation = 'fadeIn 0.5s ease-in-out';
-            }, 10);
-        }
-
-        // Load saved configuration from localStorage
-        function loadConfiguration() {
-            const savedConfig = localStorage.getItem('bioprintConfig');
-            
-            if (!savedConfig) {
-                alert('No saved configuration found.');
-                return;
-            }
-            
-            const config = JSON.parse(savedConfig);
-            
-            // Set form values
-            document.getElementById('tissueType1').value = config.tissueType;
-            updateBioinkOptions(); // This will populate bioink1 options based on tissue type
-            
-            // Need to wait a tick for the bioink options to populate
-            setTimeout(() => {
-                document.getElementById('bioink1').value = config.bioink1;
-                document.getElementById('bioink2').value = config.bioink2;
-                document.getElementById('temp1').value = config.temp1;
-                document.getElementById('speed1').value = config.speed1;
-                document.getElementById('pressure1').value = config.pressure1;
-                document.getElementById('cellDensity').value = config.cellDensity;
-                document.getElementById('flowRate').value = config.flowRate;
-                document.getElementById('crosslink').value = config.crosslink;
-                
-                // Update range value displays
-                updateRangeValues();
-                
-                // Set syringe mode
-                setSyringeMode(config.syringeMode);
-                
-                // Show confirmation
-                const insightText = document.getElementById('aiInsightText');
-                const currentText = insightText.textContent;
-                const savedDate = new Date(config.timestamp).toLocaleString();
-                insightText.textContent = `✅ Configuration loaded (saved ${savedDate}). ` + currentText;
-                
-                // Flash the message
-                insightText.style.animation = 'none';
-                setTimeout(() => {
-                    insightText.style.animation = 'fadeIn 0.5s ease-in-out';
-                }, 10);
-                
-                // Run optimization with the loaded settings
-                updateAIOptimization();
-                
-            }, 50);
-        }
-
-        // Navigation functions
-        function showLanding() {
-            document.getElementById('landingPage').style.display = 'block';
-            document.getElementById('appContainer').style.display = 'none';
-            document.getElementById('aboutContainer').style.display = 'none';
-            setActiveNav('Home');
-        }
-
-        function showApp() {
-            document.getElementById('landingPage').style.display = 'none';
-            document.getElementById('appContainer').style.display = 'block';
-            document.getElementById('aboutContainer').style.display = 'none';
-            setActiveNav('Optimizer');
-            updateAIOptimization();
-        }
-
-        function showAbout() {
-            document.getElementById('landingPage').style.display = 'none';
-            document.getElementById('appContainer').style.display = 'none';
-            document.getElementById('aboutContainer').style.display = 'block';
-            setActiveNav('About');
-        }
-
-        function showFeatures() {
-            // For this demo, features are part of the landing page
-            document.getElementById('landingPage').style.display = 'block';
-            document.getElementById('appContainer').style.display = 'none';
-            document.getElementById('aboutContainer').style.display = 'none';
-            setActiveNav('Features');
-            window.scrollTo({
-                top: document.querySelector('.features-grid').offsetTop - 80,
-                behavior: 'smooth'
-            });
-        }
+        createParticles();
     </script>
 </body>
 </html>
