@@ -662,6 +662,116 @@
             color: #b8bcc8;
         }
 
+        /* Loading Animation */
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(102, 126, 234, 0.3);
+            border-radius: 50%;
+            border-top-color: #667eea;
+            animation: spin 1s ease-in-out infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 20;
+        }
+
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* 3D Preview Container */
+        .preview-3d {
+            width: 100%;
+            height: 300px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preview-3d::before {
+            content: '3D Tissue Preview';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9em;
+        }
+
+        /* Gradient Borders */
+        .gradient-border {
+            position: relative;
+            border-radius: 20px;
+        }
+
+        .gradient-border::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            z-index: -1;
+            border-radius: 22px;
+        }
+
+        /* Enhanced UI Elements */
+        .parameter-card:hover .parameter-icon {
+            transform: scale(1.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .loading {
+            position: relative;
+        }
+        
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 15, 35, 0.7);
+            backdrop-filter: blur(2px);
+            border-radius: 20px;
+            z-index: 10;
+        }
+
+        /* Print Head Animation */
+        @keyframes printHeadMove {
+            0% { left: 10%; top: 10%; opacity: 0; }
+            5% { opacity: 1; }
+            95% { opacity: 1; }
+            100% { left: 80%; top: 80%; opacity: 0; }
+        }
+
+        .print-head {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.8));
+        }
+
         /* Responsive Design */
         @media (max-width: 1024px) {
             .hero-content h1 { 
@@ -752,6 +862,10 @@
         @media (max-width: 480px) {
             .hero-content h1 { 
                 font-size: 1.8em; 
+                background: linear-gradient(45deg, #667eea, #764ba2);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
             }
             .optimization-grid, .results-grid {
                 grid-template-columns: 1fr;
@@ -765,6 +879,15 @@
             }
             .about-container, .app-container {
                 padding: 80px 15px 20px;
+            }
+            .syringe-panel {
+                padding: 15px;
+            }
+            .input-group {
+                margin-bottom: 15px;
+            }
+            .ai-insight {
+                padding: 15px;
             }
         }
 
@@ -865,7 +988,7 @@
         <!-- Printer Interface -->
         <div class="printer-interface">
             <!-- Syringe 1 Panel -->
-            <div class="syringe-panel">
+            <div class="syringe-panel gradient-border">
                 <h3>💉 Primary Syringe (Structural)</h3>
                 <div class="input-group">
                     <label>Tissue Type</label>
@@ -908,7 +1031,7 @@
             </div>
 
             <!-- Syringe 2 Panel -->
-            <div class="syringe-panel" id="syringe2Panel" style="opacity: 0.5; pointer-events: none;">
+            <div class="syringe-panel gradient-border" id="syringe2Panel" style="opacity: 0.5; pointer-events: none;">
                 <h3>💉 Secondary Syringe (Cellular)</h3>
                 <div class="input-group">
                     <label>Bioink Type</label>
@@ -945,7 +1068,7 @@
         </div>
 
         <!-- AI Control Center -->
-        <div class="ai-controls">
+        <div class="ai-controls gradient-border">
             <div class="ai-status">
                 <div class="ai-indicator"></div>
                 <h3>🤖 AI Optimization Engine</h3>
@@ -971,8 +1094,26 @@
             </div>
         </div>
 
+        <!-- 3D Preview Section -->
+        <div class="print-simulation gradient-border">
+            <h3>📱 3D Tissue Preview & Simulation</h3>
+            <div class="preview-3d" id="preview3d">
+                <div style="color: rgba(255, 255, 255, 0.5);">3D visualization will appear here</div>
+            </div>
+            <div class="simulation-canvas" id="simulationCanvas">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #667eea;">
+                    Click "Start Print Simulation" to begin
+                </div>
+            </div>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <button class="start-print-btn" onclick="startPrintSimulation()">Start Print Simulation</button>
+                <button class="start-print-btn" style="background: linear-gradient(45deg, #667eea, #764ba2);" onclick="saveConfiguration()">Save Configuration</button>
+                <button class="start-print-btn" style="background: linear-gradient(45deg, #f59e0b, #f97316);" onclick="loadConfiguration()">Load Configuration</button>
+            </div>
+        </div>
+
         <!-- Results Section -->
-        <div class="results-section" id="resultsSection">
+        <div class="results-section gradient-border" id="resultsSection">
             <h3>🎯 Optimized Parameters</h3>
             <div class="results-grid" id="resultsGrid">
                 <!-- Parameters will be populated here -->
@@ -982,17 +1123,6 @@
                 <h3>🤖 AI Analysis & Recommendations</h3>
                 <p id="aiInsightText">Configure your tissue type and bioinks to receive AI-powered optimization recommendations tailored to your specific bioprinting application.</p>
             </div>
-        </div>
-
-        <!-- Print Simulation -->
-        <div class="print-simulation">
-            <h3>📱 Print Simulation</h3>
-            <div class="simulation-canvas" id="simulationCanvas">
-                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #667eea;">
-                    Click "Start Print Simulation" to begin
-                </div>
-            </div>
-            <button class="start-print-btn" onclick="startPrintSimulation()">Start Print Simulation</button>
         </div>
 
         <!-- Disclaimer -->
@@ -1178,6 +1308,9 @@
                     document.getElementById('navLinks').classList.remove('active');
                 });
             });
+            
+            // Load any saved configuration
+            loadConfiguration();
         });
 
         // Create animated background particles
@@ -1215,12 +1348,12 @@
             // Tissue type change listener
             document.getElementById('tissueType1').addEventListener('change', function() {
                 updateBioinkOptions();
-                updateAIOptimization();
+                simulateAIThinking();
             });
             
             // Bioink change listeners
-            document.getElementById('bioink1').addEventListener('change', updateAIOptimization);
-            document.getElementById('bioink2').addEventListener('change', updateAIOptimization);
+            document.getElementById('bioink1').addEventListener('change', simulateAIThinking);
+            document.getElementById('bioink2').addEventListener('change', simulateAIThinking);
             
             // Navigation listeners
             document.querySelectorAll('.nav-link').forEach(link => {
@@ -1229,6 +1362,106 @@
                     this.classList.add('active');
                 });
             });
+            
+            // Visual feedback for sliders
+            const sliders = document.querySelectorAll('input[type="range"]');
+            sliders.forEach(slider => {
+                slider.addEventListener('input', function() {
+                    const valueDisplay = document.getElementById(`${this.id}-value`);
+                    valueDisplay.style.transform = 'scale(1.1)';
+                    valueDisplay.style.color = '#4ade80';
+                    setTimeout(() => {
+                        valueDisplay.style.transform = 'scale(1)';
+                        valueDisplay.style.color = '';
+                    }, 300);
+                    simulateAIThinking();
+                });
+            });
+        }
+
+        // Simulate AI thinking with loading animation
+        function simulateAIThinking() {
+            const aiIndicator = document.querySelector('.ai-indicator');
+            aiIndicator.style.background = '#fbbf24'; // Change to yellow while thinking
+            document.getElementById('resultsSection').classList.add('loading');
+            
+            // Add loading spinner
+            const spinner = document.createElement('div');
+            spinner.className = 'loading-spinner';
+            document.getElementById('resultsSection').appendChild(spinner);
+            
+            setTimeout(() => {
+                aiIndicator.style.background = '#4ade80'; // Back to green when done
+                document.getElementById('resultsSection').classList.remove('loading');
+                spinner.remove();
+                updateAIOptimization();
+            }, 1500); // Simulate 1.5 second processing time
+        }
+
+        // Save current configuration to localStorage
+        function saveConfiguration() {
+            const config = {
+                tissueType: document.getElementById('tissueType1').value,
+                bioink1: document.getElementById('bioink1').value,
+                bioink2: document.getElementById('bioink2').value,
+                temp1: document.getElementById('temp1').value,
+                speed1: document.getElementById('speed1').value,
+                pressure1: document.getElementById('pressure1').value,
+                cellDensity: document.getElementById('cellDensity').value,
+                flowRate: document.getElementById('flowRate').value,
+                crosslink: document.getElementById('crosslink').value,
+                syringeMode: document.querySelector('.toggle-button.active').textContent.trim() === 'Dual Syringe' ? 'dual' : 'single'
+            };
+            
+            localStorage.setItem('bioprintConfig', JSON.stringify(config));
+            
+            // Show confirmation
+            const originalText = document.getElementById('aiInsightText').textContent;
+            document.getElementById('aiInsightText').textContent = 'Configuration saved successfully!';
+            setTimeout(() => {
+                document.getElementById('aiInsightText').textContent = originalText;
+            }, 2000);
+        }
+
+        // Load configuration from localStorage
+        function loadConfiguration() {
+            const saved = localStorage.getItem('bioprintConfig');
+            if (saved) {
+                const config = JSON.parse(saved);
+                
+                // Set all values from config
+                document.getElementById('tissueType1').value = config.tissueType;
+                updateBioinkOptions();
+                setTimeout(() => {
+                    document.getElementById('bioink1').value = config.bioink1;
+                    document.getElementById('bioink2').value = config.bioink2;
+                    document.getElementById('temp1').value = config.temp1;
+                    document.getElementById('speed1').value = config.speed1;
+                    document.getElementById('pressure1').value = config.pressure1;
+                    document.getElementById('cellDensity').value = config.cellDensity;
+                    document.getElementById('flowRate').value = config.flowRate;
+                    document.getElementById('crosslink').value = config.crosslink;
+                    
+                    // Set syringe mode
+                    setSyringeMode(config.syringeMode);
+                    
+                    // Update all displays
+                    updateRangeValues();
+                    updateAIOptimization();
+                    
+                    // Show confirmation
+                    const originalText = document.getElementById('aiInsightText').textContent;
+                    document.getElementById('aiInsightText').textContent = 'Configuration loaded successfully!';
+                    setTimeout(() => {
+                        document.getElementById('aiInsightText').textContent = originalText;
+                    }, 2000);
+                }, 100);
+            } else {
+                document.getElementById('aiInsightText').textContent = 'No saved configuration found.';
+                setTimeout(() => {
+                    updateAIOptimization();
+                }, 2000);
+            }
         }
 
         // Update bioink options based on selected tissue type
@@ -1250,7 +1483,7 @@
             }
             
             // Trigger AI optimization update
-            updateAIOptimization();
+            simulateAIThinking();
         }
 
         // Update range input value displays
@@ -1261,9 +1494,6 @@
             document.getElementById('cellDensity-value').textContent = document.getElementById('cellDensity').value + '×10⁶ cells/mL';
             document.getElementById('flowRate-value').textContent = document.getElementById('flowRate').value + ' mL/min';
             document.getElementById('crosslink-value').textContent = document.getElementById('crosslink').value + ' minutes';
-            
-            // Update AI optimization when parameters change
-            updateAIOptimization();
         }
 
         // Set syringe mode (single or dual)
@@ -1283,7 +1513,7 @@
                 document.querySelector('.toggle-button:nth-child(1)').classList.add('active');
             }
             
-            updateAIOptimization();
+            simulateAIThinking();
         }
 
         // Update AI optimization metrics and recommendations
@@ -1317,6 +1547,16 @@
             } else if (isDual) {
                 viabilityScore -= 5;
                 printScore -= 5;
+            }
+            
+            // Apply specific recommendations based on scores
+            let insightText = '';
+            if (vascularScore < 50 && isDual) {
+                insightText += 'Consider increasing the flow rate or using a different vascular bioink to improve vascular density. ';
+            }
+
+            if (structuralScore < 70) {
+                insightText += 'The structural integrity score suggests increasing the pressure or using a higher concentration bioink. ';
             }
             
             // Clamp scores between 0-100
@@ -1361,7 +1601,7 @@
             });
             
             // Generate AI insight text
-            let insightText = `For ${tissueType} tissue using ${bioink1}`;
+            insightText += `For ${tissueType} tissue using ${bioink1}`;
             
             if (isDual) {
                 insightText += ` combined with ${bioink2}, `;
@@ -1389,19 +1629,55 @@
             }
             
             document.getElementById('aiInsightText').textContent = insightText;
+            
+            // Update 3D preview visualization
+            update3DPreview();
+        }
+
+        // Update 3D preview visualization
+        function update3DPreview() {
+            const preview = document.getElementById('preview3d');
+            const tissueType = document.getElementById('tissueType1').value;
+            const isDual = document.getElementById('syringe2Panel').style.opacity === '1';
+            
+            // In a real implementation, this would use Three.js to render a 3D model
+            // For this demo, we'll just show a representative image
+            preview.innerHTML = '';
+            
+            let previewText = document.createElement('div');
+            previewText.style.textAlign = 'center';
+            previewText.style.color = 'rgba(255, 255, 255, 0.7)';
+            
+            if (tissueType) {
+                previewText.innerHTML = `
+                    <div style="font-size: 1.2em; margin-bottom: 10px; color: #667eea;">${tissueType} Structure</div>
+                    <div style="margin-bottom: 10px;">${isDual ? 'Dual-material' : 'Single-material'} configuration</div>
+                    <div style="font-size: 0.9em;">AI-optimized tissue architecture</div>
+                `;
+            } else {
+                previewText.textContent = 'Select tissue type to see 3D preview';
+            }
+            
+            preview.appendChild(previewText);
         }
 
         // Start print simulation
         function startPrintSimulation() {
             const canvas = document.getElementById('simulationCanvas');
-            canvas.innerHTML = '';
+            canvas.innerHTML = '<div class="print-head"></div>';
             
-            // Create layers with random delays
-            for (let i = 0; i < 15; i++) {
+            // Animate print head
+            const head = canvas.querySelector('.print-head');
+            head.style.animation = 'printHeadMove 8s linear forwards';
+            
+            // Create more organic looking layers
+            for (let i = 0; i < 20; i++) {
                 const layer = document.createElement('div');
                 layer.className = 'print-layer';
-                layer.style.bottom = `${i * 20}px`;
-                layer.style.animationDelay = `${i * 0.5}s`;
+                layer.style.bottom = `${i * 15}px`;
+                layer.style.animationDelay = `${i * 0.4}s`;
+                layer.style.width = `${80 + Math.random() * 10}%`;
+                layer.style.left = `${5 + Math.random() * 10}%`;
                 canvas.appendChild(layer);
             }
             
@@ -1416,7 +1692,7 @@
                 complete.style.fontWeight = 'bold';
                 complete.textContent = 'Print Complete!';
                 canvas.appendChild(complete);
-            }, 8000);
+            }, 9000);
         }
 
         // Navigation functions
