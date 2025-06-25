@@ -543,8 +543,9 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
         }
 
         .optimization-grid {
@@ -1182,20 +1183,15 @@
         </div>
 
         <!-- 3D Preview Section -->
-        <div class="preview-3d">
+        <<div class="preview-3d">
             <h3>🔍 3D Tissue Preview</h3>
-            <div class="preview-placeholder">
-                <div style="text-align: center; padding: 20px;">
-                    <div style="font-size: 1.2em; margin-bottom: 10px;">3D Preview Coming Soon</div>
-                    <div style="font-size: 0.9em;">
-                        3D preview functionality will be implemented with Three.js in the next version.<br>
-                        This will allow interactive visualization of the bioprinted tissue structure.
-                    </div>
+            <div class="preview-placeholder" id="previewPlaceholder">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #667eea;">
+                     Click "Generate 3D Preview" to begin
                 </div>
             </div>
             <button class="start-print-btn" onclick="generate3DPreview()">Generate 3D Preview</button>
         </div>
-
         <!-- AI Control Center -->
         <div class="ai-controls">
             <div class="ai-status">
@@ -1851,22 +1847,25 @@
 
         // Generate 3D preview placeholder
         function generate3DPreview() {
-            const placeholder = document.querySelector('.preview-placeholder');
-            placeholder.innerHTML = `
-                <div style="text-align: center; padding: 20px;">
-                    <div style="font-size: 1.2em; margin-bottom: 10px;">3D Preview Coming Soon</div>
-                    <div style="font-size: 0.9em;">
-                        3D preview functionality will be implemented with Three.js in the next version.<br>
-                        This will allow interactive visualization of the bioprinted tissue structure.
-                    </div>
+        const placeholder = document.getElementById('previewPlaceholder');
+        placeholder.innerHTML = `
+            <div style="text-align: center; padding: 20px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%;">
+                <div style="font-size: 1.2em; margin-bottom: 10px; color: #667eea;">3D Preview Coming Soon</div>
+                <div style="font-size: 0.9em; color: #b8bcc8; line-height: 1.5;">
+                    3D preview functionality will be implemented with Three.js in the next version.<br>
+                    This will allow interactive visualization of the bioprinted tissue structure.
                 </div>
-            `;
-            
-            // Show message
-            setTimeout(() => {
-                alert('3D preview functionality will be implemented with Three.js in the next version. This will allow interactive visualization of the bioprinted tissue structure.');
-            }, 1000);
-        }
+            </div>
+        `;
+        
+        // Add pulsing animation to indicate placeholder
+        placeholder.style.animation = 'pulse 2s infinite';
+        
+        // Remove animation after 3 seconds
+        setTimeout(() => {
+            placeholder.style.animation = '';
+        }, 3000);
+    }
 
         // Save current configuration to localStorage
         function saveConfiguration() {
