@@ -1222,6 +1222,62 @@
                 <p id="aiInsightText">Configure your tissue type and bioinks to receive AI-powered optimization recommendations tailored to your specific bioprinting application.</p>
             </div>
         </div>
+         <!-- 3D Preview Section -->
+        <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+        <div class="preview-3d">
+            <h3>🔍 3D Tissue Preview</h3>
+            <div class="visualization" id="visualization" style="position:relative;height:400px;background:rgba(0,0,0,0.2);border-radius:15px;overflow:hidden;margin-bottom:20px;">
+                <div class="visualization-placeholder" id="placeholder" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;">
+                    <p>Click "Generate 3D Preview" to begin</p>
+                    <button class="start-print-btn" id="generatePreviewBtn" style="margin-top:10px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M12.17 9.53c2.307-2.592 3.278-4.684 3.641-6.218.21-.887.214-1.58.16-2.065a3.578 3.578 0 0 0-.108-.563 2.22 2.22 0 0 0-.078-.23V.453c-.073-.164-.168-.234-.352-.295a2.35 2.35 0 0 0-.16-.045 3.797 3.797 0 0 0-.57-.093c-.49-.044-1.19-.03-2.08.188-1.536.374-3.618 1.343-6.161 3.604l-2.4.238h-.006a2.552 2.552 0 0 0-1.524.734L.15 7.17a.512.512 0 0 0 .433.868l1.896-.271c.28-.04.592.013.955.132.232.076.437.16.655.248l.203.083c.196.816.66 1.58 1.275 2.195.613.614 1.376 1.08 2.191 1.277l.082.202c.089.218.173.424.249.657.118.363.172.676.132.956l-.271 1.9a.512.512 0 0 0 .867.433l2.382-2.386c.41-.41.668-.949.732-1.526l.24-2.408Zm.11-3.699c-.797.8-1.93.961-2.528.362-.598-.6-.436-1.733.361-2.532.798-.799 1.93-.96 2.528-.361.599.599.437 1.732-.36 2.531Z"/>
+                            <path d="M5.205 10.787a7.632 7.632 0 0 0 1.804 1.352c-1.118 1.007-4.929 2.028-5.054 1.903-.126-.127.737-4.189 1.839-5.18.346.69.837 1.35 1.411 1.925Z"/>
+                        </svg>
+                        Generate 3D Preview
+                    </button>
+                </div>
+                <div class="loading" id="loading" style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;display:none;">
+                    <div class="loading-spinner" style="width:50px;height:50px;border:5px solid rgba(102,126,234,0.3);border-radius:50%;border-top-color:#667eea;animation:spin 1s ease-in-out infinite;margin-bottom:15px;"></div>
+                    <div class="loading-text" style="color:#fff;font-size:1.2em;">Generating 3D tissue model...</div>
+                </div>
+                <div class="controls-overlay" id="controls" style="position:absolute;bottom:20px;left:20px;background:rgba(0,0,0,0.6);padding:10px 15px;border-radius:10px;color:#ccc;font-size:0.9em;display:none;">
+                    <p>Mouse: Rotate | Scroll: Zoom | Shift+Mouse: Pan</p>
+                </div>
+            </div>
+                <div class="tissue-info" id="tissueInfo" style="margin-top:20px;background:rgba(0,0,0,0.2);border-radius:10px;padding:15px;display:none;">
+                    <h3 style="color:#667eea;margin-bottom:10px;font-size:1.2em;">Tissue Structure Details</h3>
+                    <p>This 3D visualization represents a bioprinted tissue construct with dual-material composition. The scaffold structure provides mechanical support while the cellular components are distributed throughout the matrix.</p>
+                    <div class="tissue-stats" style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:15px;">
+                        <div class="stat-item" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;display:flex;flex-direction:column;">
+                            <div class="stat-label" style="font-size:0.9em;color:rgba(255,255,255,0.7);margin-bottom:5px;">Porosity</div>
+                            <div class="stat-value" style="font-size:1.1em;font-weight:600;color:#667eea;">78%</div>
+                        </div>
+                        <div class="stat-item" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;display:flex;flex-direction:column;">
+                            <div class="stat-label" style="font-size:0.9em;color:rgba(255,255,255,0.7);margin-bottom:5px;">Cell Viability</div>
+                            <div class="stat-value" style="font-size:1.1em;font-weight:600;color:#667eea;">92%</div>
+                        </div>
+                        <div class="stat-item" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;display:flex;flex-direction:column;">
+                            <div class="stat-label" style="font-size:0.9em;color:rgba(255,255,255,0.7);margin-bottom:5px;">Structure Type</div>
+                            <div class="stat-value" style="font-size:1.1em;font-weight:600;color:#667eea;">Lattice</div>
+                        </div>
+                        <div class="stat-item" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;display:flex;flex-direction:column;">
+                            <div class="stat-label" style="font-size:0.9em;color:rgba(255,255,255,0.7);margin-bottom:5px;">Resolution</div>
+                            <div class="stat-value" style="font-size:1.1em;font-weight:600;color:#667eea;">85 μm</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="preview-controls" id="previewControls" style="display: none;">
+                <button onclick="rotateModel('left')">↻ Rotate Left</button>
+                <button onclick="rotateModel('right')">↺ Rotate Right</button>
+                <button onclick="zoomModel('in')">+ Zoom In</button>
+                <button onclick="zoomModel('out')">- Zoom Out</button>
+            </div>
+        </div>
         <!-- Print Simulation -->
         <div class="print-simulation">
             <h3>📱 Print Simulation</h3>
@@ -1256,62 +1312,7 @@
             <p><strong>⚠️ Research & Educational Platform</strong><br>
             This is an advanced simulation of dual-syringe AI-optimized bioprinting technology. The system is designed for research, education, and development purposes. Always consult with bioprinting experts and follow proper laboratory protocols for actual tissue engineering applications. Based on cutting-edge research from institutions including Rice University, MIT, and Wake Forest Institute for Regenerative Medicine.</p>
         </div>
-        <!-- 3D Preview Section -->
-        <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
-        <div class="preview-3d">
-            <h3>🔍 3D Tissue Preview</h3>
-            <div class="visualization" id="visualization" style="position:relative;height:400px;background:rgba(0,0,0,0.2);border-radius:15px;overflow:hidden;margin-bottom:20px;">
-                <div class="visualization-placeholder" id="placeholder" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;">
-                    <p>Click "Generate 3D Preview" to begin</p>
-                    <button class="start-print-btn" id="generatePreviewBtn" style="margin-top:10px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M12.17 9.53c2.307-2.592 3.278-4.684 3.641-6.218.21-.887.214-1.58.16-2.065a3.578 3.578 0 0 0-.108-.563 2.22 2.22 0 0 0-.078-.23V.453c-.073-.164-.168-.234-.352-.295a2.35 2.35 0 0 0-.16-.045 3.797 3.797 0 0 0-.57-.093c-.49-.044-1.19-.03-2.08.188-1.536.374-3.618 1.343-6.161 3.604l-2.4.238h-.006a2.552 2.552 0 0 0-1.524.734L.15 7.17a.512.512 0 0 0 .433.868l1.896-.271c.28-.04.592.013.955.132.232.076.437.16.655.248l.203.083c.196.816.66 1.58 1.275 2.195.613.614 1.376 1.08 2.191 1.277l.082.202c.089.218.173.424.249.657.118.363.172.676.132.956l-.271 1.9a.512.512 0 0 0 .867.433l2.382-2.386c.41-.41.668-.949.732-1.526l.24-2.408Zm.11-3.699c-.797.8-1.93.961-2.528.362-.598-.6-.436-1.733.361-2.532.798-.799 1.93-.96 2.528-.361.599.599.437 1.732-.36 2.531Z"/>
-                            <path d="M5.205 10.787a7.632 7.632 0 0 0 1.804 1.352c-1.118 1.007-4.929 2.028-5.054 1.903-.126-.127.737-4.189 1.839-5.18.346.69.837 1.35 1.411 1.925Z"/>
-                        </svg>
-                        Generate 3D Preview
-                    </button>
-                </div>
-                <div class="loading" id="loading" style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;display:none;">
-                    <div class="loading-spinner" style="width:50px;height:50px;border:5px solid rgba(102,126,234,0.3);border-radius:50%;border-top-color:#667eea;animation:spin 1s ease-in-out infinite;margin-bottom:15px;"></div>
-                    <div class="loading-text" style="color:#fff;font-size:1.2em;">Generating 3D tissue model...</div>
-                </div>
-                <div class="controls-overlay" id="controls" style="position:absolute;bottom:20px;left:20px;background:rgba(0,0,0,0.6);padding:10px 15px;border-radius:10px;color:#ccc;font-size:0.9em;display:none;">
-                    <p>Mouse: Rotate | Scroll: Zoom | Shift+Mouse: Pan</p>
-                </div>
-            </div>
-            <div class="tissue-info" id="tissueInfo" style="margin-top:20px;background:rgba(0,0,0,0.2);border-radius:10px;padding:15px;display:none;">
-                <h3 style="color:#667eea;margin-bottom:10px;font-size:1.2em;">Tissue Structure Details</h3>
-                <p>This 3D visualization represents a bioprinted tissue construct with dual-material composition. The scaffold structure provides mechanical support while the cellular components are distributed throughout the matrix.</p>
-                <div class="tissue-stats" style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:15px;">
-                    <div class="stat-item" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;display:flex;flex-direction:column;">
-                        <div class="stat-label" style="font-size:0.9em;color:rgba(255,255,255,0.7);margin-bottom:5px;">Porosity</div>
-                        <div class="stat-value" style="font-size:1.1em;font-weight:600;color:#667eea;">78%</div>
-                    </div>
-                    <div class="stat-item" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;display:flex;flex-direction:column;">
-                        <div class="stat-label" style="font-size:0.9em;color:rgba(255,255,255,0.7);margin-bottom:5px;">Cell Viability</div>
-                        <div class="stat-value" style="font-size:1.1em;font-weight:600;color:#667eea;">92%</div>
-                    </div>
-                    <div class="stat-item" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;display:flex;flex-direction:column;">
-                        <div class="stat-label" style="font-size:0.9em;color:rgba(255,255,255,0.7);margin-bottom:5px;">Structure Type</div>
-                        <div class="stat-value" style="font-size:1.1em;font-weight:600;color:#667eea;">Lattice</div>
-                    </div>
-                    <div class="stat-item" style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;display:flex;flex-direction:column;">
-                        <div class="stat-label" style="font-size:0.9em;color:rgba(255,255,255,0.7);margin-bottom:5px;">Resolution</div>
-                        <div class="stat-value" style="font-size:1.1em;font-weight:600;color:#667eea;">85 μm</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="preview-controls" id="previewControls" style="display: none;">
-            <button onclick="rotateModel('left')">↻ Rotate Left</button>
-            <button onclick="rotateModel('right')">↺ Rotate Right</button>
-            <button onclick="zoomModel('in')">+ Zoom In</button>
-            <button onclick="zoomModel('out')">- Zoom Out</button>
-        </div>
-    </div>
+       
     <div id="optimizerSections" style="display: none;">
        
     </div>
@@ -1581,7 +1582,7 @@
                 <div class="team-member">
                     <div style="font-size: 2.5em;">👩‍💻</div>
                     <h4>Atiksh Gupta</h4>
-                    <p>Worked on documentation and website.</p>
+                    <p>Worked on documentation and trifold.</p>
                 </div>
                 <div class="team-member">
                     <div style="font-size: 2.5em;">👩‍💻</div>
@@ -1591,7 +1592,7 @@
                 <div class="team-member">
                     <div style="font-size: 2.5em;">👩‍💻</div>
                     <h4>Soahn Chigurupati</h4>
-                    <p>Wored on trifold and documentation.</p>
+                    <p>Worked on trifold and documentation.</p>
                 </div>
                 <div class="team-member">
                     <div style="font-size: 2.5em;">👩‍💻</div>
@@ -1601,7 +1602,7 @@
                 <div class="team-member">
                     <div style="font-size: 2.5em;">👩‍💻</div>
                     <h4>Saatvik Gudavalli</h4>
-                    <p>Worked on documentation.</p>
+                    <p>Worked on documentation and trifold.</p>
                 </div>
             </div>
         </div>
