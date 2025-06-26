@@ -2116,73 +2116,6 @@
                 placeholder.style.animation = '';
             }, 3000);
         }
-
-        // Save current configuration to localStorage
-        function saveConfiguration() {
-            const config = {
-                tissueType: document.getElementById('tissueType1').value,
-                bioink1: document.getElementById('bioink1').value,
-                bioink2: document.getElementById('bioink2').value,
-                temp1: document.getElementById('temp1').value,
-                speed1: document.getElementById('speed1').value,
-                pressure1: document.getElementById('pressure1').value,
-                cellDensity: document.getElementById('cellDensity').value,
-                flowRate: document.getElementById('flowRate').value,
-                crosslink: document.getElementById('crosslink').value,
-                syringeMode: document.getElementById('syringe2Panel').style.opacity === '1' ? 'dual' : 'single',
-                timestamp: new Date().toISOString()
-            };
-            localStorage.setItem('bioprintConfig', JSON.stringify(config));
-        
-            // Show confirmation
-            const insightText = document.getElementById('aiInsightText');
-            if (insightText) {
-                const currentText = insightText.textContent;
-                insightText.textContent = "✅ Configuration saved successfully! " + currentText;
-        
-                // Flash the message
-                insightText.style.animation = 'none';
-                setTimeout(() => {
-                    insightText.style.animation = 'fadeIn 0.5s ease-in-out';
-                }, 10);
-            }
-        }
-
-        // Load saved configuration from localStorage
-        function loadConfiguration() {
-            const savedConfig = localStorage.getItem('bioprintConfig');
-            if (!savedConfig) {
-                alert('No saved configuration found.');
-                return;
-            }
-            const config = JSON.parse(savedConfig);
-            document.getElementById('tissueType1').value = config.tissueType;
-            updateBioinkOptions();
-            setTimeout(() => {
-                document.getElementById('bioink1').value = config.bioink1;
-                document.getElementById('bioink2').value = config.bioink2;
-                document.getElementById('temp1').value = config.temp1;
-                document.getElementById('speed1').value = config.speed1;
-                document.getElementById('pressure1').value = config.pressure1;
-                document.getElementById('cellDensity').value = config.cellDensity;
-                document.getElementById('flowRate').value = config.flowRate;
-                document.getElementById('crosslink').value = config.crosslink;
-                updateRangeValues();
-                setSyringeMode(config.syringeMode);
-                const insightText = document.getElementById('aiInsightText');
-                if (insightText) {
-                    const currentText = insightText.textContent;
-                    const savedDate = new Date(config.timestamp).toLocaleString();
-                    insightText.textContent = `✅ Configuration loaded (saved ${savedDate}). ` + currentText;
-                    insightText.style.animation = 'none';
-                    setTimeout(() => {
-                        insightText.style.animation = 'fadeIn 0.5s ease-in-out';
-                    }, 10);
-                }
-                updateAIOptimization();
-            }, 50);
-        }
-
         // Navigation functions
         function showLanding() {
             document.getElementById('landingPage').style.display = 'block';
@@ -2380,5 +2313,68 @@
               document.getElementById('launchOptimizerBtn').onclick = showOptimizerSections;
               document.getElementById('optimizerNavbarBtn').onclick = showOptimizerSections;
         </script>
+    <script>
+        function showPopup(message) {
+              document.getElementById('popupText').textContent = message;
+              document.getElementById('popupMessage').style.display = 'flex';
+            }
+            function closePopup() {
+              document.getElementById('popupMessage').style.display = 'none';
+            }
+            
+            // Save configuration
+            function saveConfiguration() {
+              const config = {
+                tissueType: document.getElementById('tissueType1').value,
+                bioink1: document.getElementById('bioink1').value,
+                bioink2: document.getElementById('bioink2').value,
+                temp1: document.getElementById('temp1').value,
+                speed1: document.getElementById('speed1').value,
+                pressure1: document.getElementById('pressure1').value,
+                cellDensity: document.getElementById('cellDensity').value,
+                flowRate: document.getElementById('flowRate').value,
+                crosslink: document.getElementById('crosslink').value,
+                syringeMode: document.getElementById('syringe2Panel').style.opacity === '1' ? 'dual' : 'single',
+                timestamp: new Date().toISOString()
+              };
+              localStorage.setItem('bioprintConfig', JSON.stringify(config));
+              showPopup("✅ Configuration saved successfully!");
+            }
+            
+            // Load configuration
+            function loadConfiguration() {
+              const savedConfig = localStorage.getItem('bioprintConfig');
+              if (!savedConfig) {
+                showPopup("⚠️ No saved configuration found.");
+                return;
+              }
+              const config = JSON.parse(savedConfig);
+              document.getElementById('tissueType1').value = config.tissueType;
+              if (typeof updateBioinkOptions === "function") updateBioinkOptions();
+            
+              setTimeout(() => {
+                document.getElementById('bioink1').value = config.bioink1;
+                document.getElementById('bioink2').value = config.bioink2;
+                document.getElementById('temp1').value = config.temp1;
+                document.getElementById('speed1').value = config.speed1;
+                document.getElementById('pressure1').value = config.pressure1;
+                document.getElementById('cellDensity').value = config.cellDensity;
+                document.getElementById('flowRate').value = config.flowRate;
+                document.getElementById('crosslink').value = config.crosslink;
+                if (typeof updateRangeValues === "function") updateRangeValues();
+                if (typeof setSyringeMode === "function") setSyringeMode(config.syringeMode);
+                if (typeof updateAIOptimization === "function") updateAIOptimization();
+                showPopup("✅ Configuration loaded successfully!");
+              }, 50);
+            }
+    </script>
+    <div id="popupMessage" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.4);z-index:9999;align-items:center;justify-content:center;">
+      <div style="background:white;padding:30px 40px;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,0.2);font-size:1.2em;text-align:center;min-width:220px;">
+        <span id="popupText"></span>
+        <div style="margin-top:20px;">
+          <button onclick="closePopup()" style="padding:8px 24px;font-size:1em;background:#4ade80;color:white;border:none;border-radius:5px;cursor:pointer;">OK</button>
+        </div>
+      </div>
+    </div>
 </body>
 </html>
