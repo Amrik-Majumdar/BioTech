@@ -1239,6 +1239,83 @@
         </div>
         <button class="start-print-btn" onclick="init3DPreview()">Generate 3D Preview</button>
     </div>
+    <div id="optimizerSections" style="display: none;">
+        <!-- AI Control Center -->
+        <div class="ai-controls">
+            <div class="ai-status">
+                <div class="ai-indicator"></div>
+                <h3>🤖 AI Optimization Engine</h3>
+                <span style="margin-left: auto; color: #4ade80;">ACTIVE</span>
+            </div>
+            <div class="optimization-grid">
+                <div class="optimization-metric">
+                    <div class="metric-value smooth-transition" id="viabilityScore">94%</div>
+                    <div class="metric-label">Cell Viability</div>
+                </div>
+                <div class="optimization-metric">
+                    <div class="metric-value smooth-transition" id="structuralScore">89%</div>
+                    <div class="metric-label">Structural Integrity</div>
+                </div>
+                <div class="optimization-metric">
+                    <div class="metric-value smooth-transition" id="vascularScore">76%</div>
+                    <div class="metric-label">Vascular Density</div>
+                </div>
+                <div class="optimization-metric">
+                    <div class="metric-value smooth-transition" id="printScore">92%</div>
+                    <div class="metric-label">Print Quality</div>
+                </div>
+            </div>
+            <div class="ai-optimize-btn-container">
+                <button class="start-print-btn" onclick="simulateAIThinking()">Run AI Optimization</button>
+            </div>
+        </div>
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection">
+            <h3>🎯 Optimized Parameters</h3>
+            <div class="results-grid" id="resultsGrid">
+                <!-- Parameters will be populated here -->
+            </div>
+            
+            <div class="ai-insight">
+                <h3>🤖 AI Analysis & Recommendations</h3>
+                <p id="aiInsightText">Configure your tissue type and bioinks to receive AI-powered optimization recommendations tailored to your specific bioprinting application.</p>
+            </div>
+        </div>
+        <!-- Print Simulation -->
+        <div class="print-simulation">
+            <h3>📱 Print Simulation</h3>
+            <div class="simulation-canvas" id="simulationCanvas">
+                <div class="print-head" id="printHead"></div>
+                <div class="print-nozzle" id="printNozzle"></div>
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #667eea;">
+                    Click "Start Print Simulation" to begin
+                </div>
+            </div>
+            <button class="start-print-btn" onclick="startPrintSimulation()">Start Print Simulation</button>
+        </div>
+        <!-- Save/Load Configuration -->
+        <div class="save-load-section">
+            <h3>💾 Save/Load Configuration</h3>
+            <p style="text-align: center; margin-bottom: 20px; color: #b8bcc8;">
+                Save your current settings to your browser or load previously saved configurations.<br>
+                This allows you to return to your preferred setup without re-entering all parameters.
+            </p>
+            <div class="save-load-buttons">
+                <button class="start-print-btn" style="background: linear-gradient(45deg, #667eea, #764ba2); min-width: 200px;" onclick="saveConfiguration()">
+                    Save Current Configuration
+                </button>
+                <button class="start-print-btn" style="background: linear-gradient(45deg, #f59e0b, #f97316); min-width: 200px;" onclick="loadConfiguration()">
+                    Load Saved Configuration
+                </button>
+            </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="disclaimer">
+            <p><strong>⚠️ Research & Educational Platform</strong><br>
+            This is an advanced simulation of dual-syringe AI-optimized bioprinting technology. The system is designed for research, education, and development purposes. Always consult with bioprinting experts and follow proper laboratory protocols for actual tissue engineering applications. Based on cutting-edge research from institutions including Rice University, MIT, and Wake Forest Institute for Regenerative Medicine.</p>
+        </div>
+
         <script>
         // (Keep all your existing JavaScript)
         // ...
@@ -1446,85 +1523,6 @@
             camera.position.z += action === 'in' ? -0.5 : 0.5;
         }
             </script>
-
-        <!-- AI Control Center -->
-        <div class="ai-controls">
-            <div class="ai-status">
-                <div class="ai-indicator"></div>
-                <h3>🤖 AI Optimization Engine</h3>
-                <span style="margin-left: auto; color: #4ade80;">ACTIVE</span>
-            </div>
-            <div class="optimization-grid">
-                <div class="optimization-metric">
-                    <div class="metric-value smooth-transition" id="viabilityScore">94%</div>
-                    <div class="metric-label">Cell Viability</div>
-                </div>
-                <div class="optimization-metric">
-                    <div class="metric-value smooth-transition" id="structuralScore">89%</div>
-                    <div class="metric-label">Structural Integrity</div>
-                </div>
-                <div class="optimization-metric">
-                    <div class="metric-value smooth-transition" id="vascularScore">76%</div>
-                    <div class="metric-label">Vascular Density</div>
-                </div>
-                <div class="optimization-metric">
-                    <div class="metric-value smooth-transition" id="printScore">92%</div>
-                    <div class="metric-label">Print Quality</div>
-                </div>
-            </div>
-            <div class="ai-optimize-btn-container">
-                <button class="start-print-btn" onclick="simulateAIThinking()">Run AI Optimization</button>
-            </div>
-        </div>
-
-        <!-- Results Section -->
-        <div class="results-section" id="resultsSection">
-            <h3>🎯 Optimized Parameters</h3>
-            <div class="results-grid" id="resultsGrid">
-                <!-- Parameters will be populated here -->
-            </div>
-            
-            <div class="ai-insight">
-                <h3>🤖 AI Analysis & Recommendations</h3>
-                <p id="aiInsightText">Configure your tissue type and bioinks to receive AI-powered optimization recommendations tailored to your specific bioprinting application.</p>
-            </div>
-        </div>
-
-        <!-- Print Simulation -->
-        <div class="print-simulation">
-            <h3>📱 Print Simulation</h3>
-            <div class="simulation-canvas" id="simulationCanvas">
-                <div class="print-head" id="printHead"></div>
-                <div class="print-nozzle" id="printNozzle"></div>
-                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #667eea;">
-                    Click "Start Print Simulation" to begin
-                </div>
-            </div>
-            <button class="start-print-btn" onclick="startPrintSimulation()">Start Print Simulation</button>
-        </div>
-
-        <!-- Save/Load Configuration -->
-        <div class="save-load-section">
-            <h3>💾 Save/Load Configuration</h3>
-            <p style="text-align: center; margin-bottom: 20px; color: #b8bcc8;">
-                Save your current settings to your browser or load previously saved configurations.<br>
-                This allows you to return to your preferred setup without re-entering all parameters.
-            </p>
-            <div class="save-load-buttons">
-                <button class="start-print-btn" style="background: linear-gradient(45deg, #667eea, #764ba2); min-width: 200px;" onclick="saveConfiguration()">
-                    Save Current Configuration
-                </button>
-                <button class="start-print-btn" style="background: linear-gradient(45deg, #f59e0b, #f97316); min-width: 200px;" onclick="loadConfiguration()">
-                    Load Saved Configuration
-                </button>
-            </div>
-        </div>
-
-        <!-- Disclaimer -->
-        <div class="disclaimer">
-            <p><strong>⚠️ Research & Educational Platform</strong><br>
-            This is an advanced simulation of dual-syringe AI-optimized bioprinting technology. The system is designed for research, education, and development purposes. Always consult with bioprinting experts and follow proper laboratory protocols for actual tissue engineering applications. Based on cutting-edge research from institutions including Rice University, MIT, and Wake Forest Institute for Regenerative Medicine.</p>
-        </div>
     </div>
 
     <!-- About Page -->
