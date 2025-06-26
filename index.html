@@ -1222,35 +1222,6 @@
                 <p id="aiInsightText">Configure your tissue type and bioinks to receive AI-powered optimization recommendations tailored to your specific bioprinting application.</p>
             </div>
         </div>
-         
-        <!-- Print Simulation -->
-        <div class="print-simulation">
-            <h3>📱 Print Simulation</h3>
-            <div class="simulation-canvas" id="simulationCanvas">
-                <div class="print-head" id="printHead"></div>
-                <div class="print-nozzle" id="printNozzle"></div>
-                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #667eea;">
-                    Click "Start Print Simulation" to begin
-                </div>
-            </div>
-            <button class="start-print-btn" onclick="startPrintSimulation()">Start Print Simulation</button>
-        </div>
-        <!-- Save/Load Configuration -->
-        <div class="save-load-section">
-            <h3>💾 Save/Load Configuration</h3>
-            <p style="text-align: center; margin-bottom: 20px; color: #b8bcc8;">
-                Save your current settings to your browser or load previously saved configurations.<br>
-                This allows you to return to your preferred setup without re-entering all parameters.
-            </p>
-            <div class="save-load-buttons">
-                <button class="start-print-btn" style="background: linear-gradient(45deg, #667eea, #764ba2); min-width: 200px;" onclick="saveConfiguration()">
-                    Save Current Configuration
-                </button>
-                <button class="start-print-btn" style="background: linear-gradient(45deg, #f59e0b, #f97316); min-width: 200px;" onclick="loadConfiguration()">
-                    Load Saved Configuration
-                </button>
-            </div>
-        </div>
      <!-- 3D Preview Section -->
         <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
@@ -1306,6 +1277,34 @@
                 <button onclick="zoomModel('in')">+ Zoom In</button>
                 <button onclick="zoomModel('out')">- Zoom Out</button>
             </div>
+        <!-- Print Simulation -->
+        <div class="print-simulation">
+            <h3>📱 Print Simulation</h3>
+            <div class="simulation-canvas" id="simulationCanvas">
+                <div class="print-head" id="printHead"></div>
+                <div class="print-nozzle" id="printNozzle"></div>
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #667eea;">
+                    Click "Start Print Simulation" to begin
+                </div>
+            </div>
+            <button class="start-print-btn" onclick="startPrintSimulation()">Start Print Simulation</button>
+        </div>
+        <!-- Save/Load Configuration -->
+        <div class="save-load-section">
+            <h3>💾 Save/Load Configuration</h3>
+            <p style="text-align: center; margin-bottom: 20px; color: #b8bcc8;">
+                Save your current settings to your browser or load previously saved configurations.<br>
+                This allows you to return to your preferred setup without re-entering all parameters.
+            </p>
+            <div class="save-load-buttons">
+                <button class="start-print-btn" style="background: linear-gradient(45deg, #667eea, #764ba2); min-width: 200px;" onclick="saveConfiguration()">
+                    Save Current Configuration
+                </button>
+                <button class="start-print-btn" style="background: linear-gradient(45deg, #f59e0b, #f97316); min-width: 200px;" onclick="loadConfiguration()">
+                    Load Saved Configuration
+                </button>
+            </div>
+        </div>
         </div>  
     <!-- Disclaimer -->
         <div class="disclaimer">
