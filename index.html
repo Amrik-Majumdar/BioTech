@@ -2132,37 +2132,32 @@
                 syringeMode: document.getElementById('syringe2Panel').style.opacity === '1' ? 'dual' : 'single',
                 timestamp: new Date().toISOString()
             };
-            
             localStorage.setItem('bioprintConfig', JSON.stringify(config));
-            
+        
             // Show confirmation
             const insightText = document.getElementById('aiInsightText');
-            const currentText = insightText.textContent;
-            insightText.textContent = "✅ Configuration saved successfully! " + currentText;
-            
-            // Flash the message
-            insightText.style.animation = 'none';
-            setTimeout(() => {
-                insightText.style.animation = 'fadeIn 0.5s ease-in-out';
-            }, 10);
+            if (insightText) {
+                const currentText = insightText.textContent;
+                insightText.textContent = "✅ Configuration saved successfully! " + currentText;
+        
+                // Flash the message
+                insightText.style.animation = 'none';
+                setTimeout(() => {
+                    insightText.style.animation = 'fadeIn 0.5s ease-in-out';
+                }, 10);
+            }
         }
 
         // Load saved configuration from localStorage
         function loadConfiguration() {
             const savedConfig = localStorage.getItem('bioprintConfig');
-            
             if (!savedConfig) {
                 alert('No saved configuration found.');
                 return;
             }
-            
             const config = JSON.parse(savedConfig);
-            
-            // Set form values
             document.getElementById('tissueType1').value = config.tissueType;
-            updateBioinkOptions(); // This will populate bioink1 options based on tissue type
-            
-            // Need to wait a tick for the bioink options to populate
+            updateBioinkOptions();
             setTimeout(() => {
                 document.getElementById('bioink1').value = config.bioink1;
                 document.getElementById('bioink2').value = config.bioink2;
@@ -2172,28 +2167,19 @@
                 document.getElementById('cellDensity').value = config.cellDensity;
                 document.getElementById('flowRate').value = config.flowRate;
                 document.getElementById('crosslink').value = config.crosslink;
-                
-                // Update range value displays
                 updateRangeValues();
-                
-                // Set syringe mode
                 setSyringeMode(config.syringeMode);
-                
-                // Show confirmation
                 const insightText = document.getElementById('aiInsightText');
-                const currentText = insightText.textContent;
-                const savedDate = new Date(config.timestamp).toLocaleString();
-                insightText.textContent = `✅ Configuration loaded (saved ${savedDate}). ` + currentText;
-                
-                // Flash the message
-                insightText.style.animation = 'none';
-                setTimeout(() => {
-                    insightText.style.animation = 'fadeIn 0.5s ease-in-out';
-                }, 10);
-                
-                // Run optimization with the loaded settings
+                if (insightText) {
+                    const currentText = insightText.textContent;
+                    const savedDate = new Date(config.timestamp).toLocaleString();
+                    insightText.textContent = `✅ Configuration loaded (saved ${savedDate}). ` + currentText;
+                    insightText.style.animation = 'none';
+                    setTimeout(() => {
+                        insightText.style.animation = 'fadeIn 0.5s ease-in-out';
+                    }, 10);
+                }
                 updateAIOptimization();
-                
             }, 50);
         }
 
